@@ -9,4 +9,21 @@ export const appRoutes: Route[] = [
         (m) => m.GridCompComponent
       ),
   },
+  {
+    path: 'general',
+    loadComponent: () =>
+      import('./general-feature/general-feature.component').then(
+        (m) => m.GeneralFeatureComponent
+      ),
+  },
+  {
+    path: 'version',
+    loadComponent: () =>
+      import('./ng-version-feature/ng-version-feature.component').then(
+        (m) => m.NgVersionFeatureComponent
+      ),
+  },
+  {
+    path: '**',redirectTo:'general'
+  },
 ];
