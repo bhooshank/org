@@ -17,13 +17,13 @@ export const appRoutes: Route[] = [
       ),
   },
   {
-    path: 'version',
+    path: 'version/:id',pathMatch:'full',
     loadComponent: () =>
       import('./ng-version-feature/ng-version-feature.component').then(
         (m) => m.NgVersionFeatureComponent
       ),
-  },
+  }/* ,
   {
     path: '**',redirectTo:'general'
-  },
+  }, */
 ];

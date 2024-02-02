@@ -1,0 +1,21 @@
+<li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="navbarScrollingDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ dropdownTitle }}
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+    <ng-container *ngFor="let dropdownItem of dropdownItems">
+      <li>
+        <a class="dropdown-item" [routerLink]="[dropdownItem?.link,dropdownItem.id]">{{
+          dropdownItem?.linkName
+        }}</a>
+      </li>
+    </ng-container>
+  </ul>
+</li>

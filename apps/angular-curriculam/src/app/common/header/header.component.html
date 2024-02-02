@@ -15,8 +15,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+        <ng-container *ngIf="dropdownItems">
+        <org-menudropdown [dropdownItems]="dropdownItems" [dropdownTitle]="dropdownTitle"></org-menudropdown>
+        </ng-container>
         <a class="nav-link active" routerLink="/grid" >Ag-grid</a>
-        <a class="nav-link active" routerLink="/version" >Versions</a>
         <a class="nav-link active" routerLink="/general">General</a>
        <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
           >Disabled</a
