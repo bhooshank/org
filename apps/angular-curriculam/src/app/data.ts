@@ -1,7 +1,6 @@
 import { MenuDropdownItem } from './model';
 
 export const DROPDOWN_ITEMS: MenuDropdownItem[] = [
-  
   {
     link: '/version',
     id: 'Angular2',
@@ -193,7 +192,7 @@ Set skipLibCheck to true in your tsConfig file to enable strictNullChecks in an 
 
     `,
     imgUrl: '',
-    description:`
+    description: `
 angular 5 in this version there was lots of efforts made to reduce the bundle size of the app after production build because of build optimizer,
 compiler improvements, angular httpClient bieng used in replacement of Http traditional module, TypeScript 2.5 support, preserve white spaces
        
@@ -224,7 +223,7 @@ With the new Angular 5, one can now choose whether or not to restrict newlines, 
     title: 'Angular 6',
     preText: '',
     imgUrl: '',
-    description:`
+    description: `
 This release is focused less on the underlying framework, and more on tool-chain and on making it easier to move quickly with angular in the future, Dependency on RxJS 6,Synchronizes major version number of the Angular framework, Angular CLI, Angular Material  CDK all are now version 6.0.0
 
 Angular 6 features
@@ -265,6 +264,574 @@ Enable size tracking of a minimal CLI render3 application
 Add canonical view query
 Long-term support(LTE) added to Angular from v4
 `,
+  },
+  Angular7: {
+    id: 'Angular7',
+    title: 'Angular 7',
+    preText: `
+    // In your project's package.json file
+{
+  "dependencies": {
+    "my-legacy-library": "^1.0.0"
+  }
+}
+
+// In your Angular application
+import { MyLegacyComponent } from 'my-legacy-library';
+
+@Component({
+  selector: 'app-root',
+  template: 
+    "<my-legacy-component></my-legacy-component>"
+  
+})
+export class AppComponent { }
+
+In this example, the my-legacy-library is a library that has been published in the legacy format.
+When the Angular Ivy compiler encounters this import, it will automatically run ngcc on the library to compile it to the new format,
+allowing the MyLegacyComponent to be used in the Angular application.
+    `,
+    imgUrl: '',
+    description: `
+Google has released Angular version 7 in Oct 2018 with a lot of optimum features and significant changes like Angular Material, CLI prompts, Scrolling, Drag, and Virtual and Drop & Component Dev Kit (CDK)
+
+CLI prompts
+In Angular 7, the command-line interface (CLI) prompts have been updated to v7.0.2, When the user executes common commands like ng add @angular/material or ng new it will automatically prompt users commands like ng add @angular/material help you discover built-in features like routing or SCSS support.
+
+New ng-compiler
+Angular 7 added a new compiler called the Angular Compatibility Compiler (ngcc). Just like the name suggests, the angular compiler offers an 8-phase rotating ahead-of-time compilation(AOT) and most of the angular applications noticed a massive reduction (95-99%) in bundle sizes.
+
+Angular Material CDK (Component Dev Kit)
+Virtual scrolling
+The scrolling package enables loads and unloads items from the DOM depending upon visible parts of lists, resulting into a much faster experience for users having huge scrollable lists.
+Drag & drop
+Now you can re-order the list just by dragging and dropping with new @angular/cdk/drag-drop module which provides free dragging, sorting within a list, transferring items between lists, animations and much more.
+Application performance
+Many developers include the reflect-metadata polyfill in the production, so they decided to fix this part by automatically removing it from your polyfills.ts file and to speed up the performance new applications will warn when the initial bundle is more than 2MB and will error at 5MB which user can modify it in angular.json file. 
+
+Angular Do-Bootstrap
+Angular 7 added a new life-cycle hook (ngDoBootstrap) and interface (DoBootstrap), It's used for bootstrapping modules that need to bootstrap a component.
+
+Router
+In Angular 7, If you try to trigger navigation outside of the Angular zone it logs a warning (only in development mode). Also, adds navigation execution context info to activation hooks.
+
+Some Major updates in Angular 7
+Angular 7 now supporting to TypeScript 3.1
+Added a new ability to recover from malformed URLs
+Downloadable console for starting and running Angular projects on your local machine
+compiler-cli: update tsickle to 0.29.x
+Export defaultKeyValueDiffers to private API 
+    `,
+  },
+  Angular8: {
+    id: 'Angular8',
+    title: 'Angular 8',
+    preText: '',
+    imgUrl: '',
+    description: `
+Angular 8 has introduced with a bunch of workflow and performance improvements and a lot has changed in the framework under the hood in terms of tooling. Comparing Angular 6 vs Angular 7 vs Angular 8 Finally, Angular 8 released with ivy rendering which Angular team was along with updated angular core framework, Angular Material, and the Command Line Interface or CLI.
+
+Ivy Engine
+Ivy is a major part of this release, and it took most of the effort from Angular 6 to release it. Ivy is a long thought feature of Angular 8 vs Angular 7 where Ivy was still under active development. Ivy is a new rendering engine that will produce smaller bundle sizes But it's not recommended to start using it in production not just yet. Know more about what is ivy?
+
+Web Workers
+Web workers are essential for improving the parallelizability and the speed of your application. Angular 8.0 added support to CLI which provides one bundle for every web worker & they do it by writing code off the main thread. The new CLI allows writing code off the main thread in angular 8 vs angular 9 where the latest CLI takes advantage of newer updates automatically.
+
+Lazy Loading
+Lazy loading is based on the concepts of Angular Routing and Angular 8 added support for dynamic EcmaScript imports in router configuration as it helps bring down the size of large files by lazily loading the files that are required.
+
+Angular Firebase
+Angular 8 officially added support for firebase and now deploying an Angular app to Firebase is very easy, and it doesn’t take too much time using Angular CLI, Service Worker.
+
+Differential loading
+Your Angular 8 apps now will more performant thanks to differential loading and two bundles are created for a production build i,e bundle for new browser with ES2015+ and with an old browser with ES5 version. The correct bundle will automatically load by the browser with new ES6 modules present in the new browser.
+The ng build command with the --prod flag will take care of bundling everything out of the box.
+
+Opt-In Usage Sharing
+As opposed to Angular 9 vs Angular 8 can switch between IVY and the regular View engine build. It enables opt-in to sharing telemetry about your Angular CLI usage with the Angular and can collect data like commands used and the build speed if users allow them which will help developers improve in the future.
+
+Angular CLI Builders
+The CLI Builder API is stable and available to angular developers who want to customize the Angular CLI by adding or modifying commands. Comparing Angular 8 vs Angular 9, version 9 tracks the libraries and updates them using Bazel.
+
+
+Major features included in Angular 8
+
+AngularJS API Migration Improvements with $location service
+Updated Typescript to 3.4.x
+@angular/platform-webworker and@angular/platform-webworker-dynamic both the packages are deprecated
+@angular/http removed from the list of packages
+ng-build, ng-test, and ng-run are equipped to be extended by 3rd-party libraries and tool.
+Angular router backward compatibility
+Dart-sass for Sass files
+The ViewChild and ContentChild decorators now must have a new option called static.
+    `,
+  },
+  Angular9: {
+    id: 'Angular9',
+    title: 'Angular 9',
+    preText: `
+  // The Ivy compiler and runtime handles style in a predictable manner.
+  With this Angular 9 feature, one can manage styles through a clear, consistent order of precedence which is not dependent on timing.
+
+  [style.color]="myColor"
+  [style]="{color: myOtherColor}" myDirective>
+  @Component({
+    host: {
+      style: "color:blue"
+    },...
+  })
+  ...
+  
+  @Directive({
+    host: {
+      style: "color:black",
+      "[style.color]": "property"
+    },...
+  })
+  ...
+    `,
+    imgUrl: '',
+    description: `
+Angular 9 was released on the 7th of Feb 2020, with some exciting new features. Along with these existing features have also been modified. The highlight of this version is the default IVY compiler which forms the core structure of the entire framework.
+
+IVY as a Default Compiler
+Ivy is a default compiler in Angular 9 vs Angular 8 where it was an opt-in preview engine. This is one of the major differences between angular 9 and angular 8. The default IVY compiler reduces the bundle size by 25-40 percent which enables better performance. This enables the developers to decrease the size of files making them user-friendly.
+
+ IVY checks the bindings within the templates of any application and then reports any kind of issues it finds. This helps in detecting any bugs earlier in the development process. It then compiles the codebases with tools and techniques to debug its applications. In angular 9, the IVY manages the style binding without being dependent on any timings. Angular 9 maintains most of the drawbacks without losing performance.
+
+More reliable ng-update
+The ng update is the basic update to the current CLI framework that takes advantage of newer updates automatically. This will also enable us to give updates and information about any kind of migration in Angular 9 vs Angular 8 where we have seen the CLI just speeding your application and improving the parallelizability.
+
+API Extractor Updates
+
+Angular depends on various services and libraries that are difficult to track. API landscape of these libraries helps find the missing updates so that they are communicated easily.
+
+New options for 'providedIn'
+This angular 9 feature provides us with certain options while creating services in Angular. for e. g
+
+platform— The providedIn: 'platform' makes the service available in a special single platform that is shared by all applications on the page.
+any— It provides a unique instance in every module, instilling the token.
+IDE and Language Service Improvements
+The Angular language service extension includes a set of useful extensions in order to build up the development experience with Angular. The extensions include Angular snippets, ESLint, and debugging extensions. Along with these performance and stability issues have also been fixed.
+
+Updated to Typescript 3.7
+The typescript 3.7 was released in November 2019 and it gave a major hit to the angular 9. The angular 9 is updated to work with the Nullish coalescing and optional chaining feature of the Typescript 3.7 which helps to stay in sync with the environment. Both Angular 8 vs Angular 9 features the Typescript, however, Angular 8 used Typescript 3.4.
+
+Component Harness
+Angular 9 provides alternative ways to test components to make sure that the unit tests are correctly audited and less frail. Angular finds the component on its own.the compile rand runtime have been updated in angular 9, so there is no longer a need to identify this in the entryComponents array.
+
+The Phantom Template Variable Menace
+In the previous versions, phantom variables were not cited in the template’s related component. Building the phantom variables can usually threaten the applications. With this version, a compiler error shows up, when a template variable is created that has not been characterized in a component.
+
+Major updates in Angular 9
+Selector-less directives were already supported in the old version but were missing in the Ivy preview in Angular 8 vs Angular 9 where this feature has been added.
+The AOT builds will be noticeably faster ensuring a significant change in the compiler's performance.
+With IVY we see an improvement in the build error. It gives less time for the builds to complete enabling all the error messages easier to read.
+The Angular framework in the new version uses unique techniques and tools to debug its applications by themselves.
+The deprecated versioned files option for service workers in the service worker asset group config has been removed.
+The ViewEngine in this version translates the templates and components into regular HTML and JavaScript for the browser can interpret and display them.
+
+    
+    `,
+  },
+  Angular10: {
+    id: 'Angular10',
+    title: 'Angular 10',
+    preText: '',
+    imgUrl: '',
+    description: `
+Angular 10 was released on the 24th of June, 2020 with the beta version.  This major release of the latest Angular version is going to focus on the ecosystem, quality tools, and the core structure in its entirety, rather than focus on new features. This determines that this version will have a lot of deprecation and upgrades.
+
+Angular 9, which was released in February has paved the way for this version of the google-developed, typescript-based framework. when compared between Angular 10 vs Angular 11, Angular 11 is bigger in size as they have introduced new features rather than working on just the ecosystem. Let's Have a look at the features:
+
+Language Service
+Angular 10 comes with the language-service-specific compiler that enables typecheck files to create ScriptInfos as necessary. Angular 10 has also negated the use of Autocompletion from HTML entities, such as &, <, etc., for safeguarding the inhouse core functionality of Angular LS supporting the questionable value and a performance cost. 
+
+Compiler Update
+The latest Angular version has added a compiler interface that wraps the actual ngtsc compiler. There are some additional features to the metadata like the Dependency information, ng-content selectors, Angular Language Service. These features propagate  the precise cost span in an ExpressionBinding of a micro syntax expression. 
+
+New Default Browser Configuration
+New Angular 10 feature that it uses browser configuration for all the new projects outdoing the old ones. Users will only have to add the required browsers in the .browserslist RC file which will enable ES5 builds and differential loading for browsers. 
+
+Optional Stricter Settings
+Angular version 10 provides a more strict project setup for making another workspace with ng new. Once this flag, “ng new --strict” is enabled, it begins the new undertaking with new settings that will help in maintaining and assisting in order to catch bugs well ahead in the development process.
+
+Ngcc
+The usage of the A Program-based entry-point finder in Angular 10 helps the entry-point finder to reach a program that is characterized by a tsconfig.json record. This choice catalyzes the cycle in places that are introduced with a relatively small number of entry points brought into that application. Consequently, this helps in manifesting and reducing the file size of the entry-point.
+
+Performance Improvements
+Angular 10 has witnessed a reduction in the size of the entry-points, leading to an improvement in performance. The caching of the dependencies and the calculation of basePaths further aids in improving the performance.
+
+Typescript 3.9, TSLib 2.9 & TSLint v6
+This is one of the significant features comparing Angular 10 vs 11. As opposed to the previous version of Angular 9, which utilized typescript 3.7, Angular 10 has been moved up to Typescript 3.9 where the community has dealt with performance, polish, and stability. Error-checking, completions, quick fixes, accelerating the compiler, and altering experience are some of the important elements that  Typescript 3.9 gives. Additionally, Angular 10,  has been moved up to work with TSLib 2.9 and TSLint v6.
+
+Localization
+Angular 10 performance improvements include the merging of multiple translation documents by methods for a message ID, which was previously done for one file in angular 9.
+
+Service Workers
+Angular 10 ignores the Vary headers when the sources from the Service Worker stores are recovered when their headers are not similar.  In case any application needs to separate any reactions, it turns out to be significant to guarantee that the Angular ServiceWorker is arranged to avoid caching the affected resources.
+
+Deprecation
+Angular 10 has witnessed a couple of deprecations like typescript 3.6 and 3.7, the incorporation of ESM5 or FESM5 packs, and the deprecation of ESM5 or FESM5 bundles. The community has also seen deprecation of older browsers including IE 9, 10, and Internet Explorer Mobile. The deprecation of ESM5 or FESM5 bundles has helped Angular 10 to reduce 119MB of download and install time while running a yarn or npm introduction for Angular bundles and libraries. 
+
+Core
+Angular 10 has now logged in all the warnings as errors,  without breaking the app. Generic is made compulsory in Angular 10 for ModuleWithProviders to work with the Ivy gathering just as delivering pipeline, guaranteeing that if an engineer is utilizing View Engine, then no build error is going to be issued. 
+
+Converting pre-Ivy code
+The pre-ivy conditions in Angular 10 support changes in the ivy conditions. This helps the royal residence to be accepted as a forerunner for running NTSC at the application level. All the compilations in the future, as well as the linking operations, should be made in light of a legitimate concern for changing versions of dependencies.
+    
+`,
+  },
+  Angular11: {
+    id: 'Angular11',
+    title: 'Angular 11',
+    preText: '',
+    imgUrl: '',
+    description: `
+Angular 11 released on 14th November 2020.  It is the newest and the latest version of the Google-developed web framework as a production release. The major features of this version are router performance improvements, automatic inlining of fonts and stricter types. Let's have a look at the deprecations and breaking changes and more features of Angular 11. 
+
+Updated Hot Module Replacement (HMR) Support
+Angular 11 features Hot Module Replacement mechanism that lets the modules to be replaced without a full browser refresh.  It is an old idea for Angular developers where the team has worked with HMR in the previous versions. One of the new features of Angular 11 is that it supports HMR with required configuration and changes in code that make inclusion of Angular less ideal. With HMR the changes to components, styles, and templates are instantly updated into the running application without having to refresh the full page. 
+
+Updates on Operation Byelog
+The Angular team has invested some significant engineering effort on Operation Byelog where they focussed on the triaging issues and PRs and having a better understanding of the extensive community needs. With Angular 11, All the issues have now been effectively triaged in every one of the three monorepos that continue with the new issues that get reported This process also helps with the few popular concerns in the router and forms as well. The issues in Angular 11 will be triaged within 2 weeks of the occurrence, reducing the size of the Angular backlog. 
+
+Automatic Inlining of Fonts
+Angular 11 features automatic font inlining that occurs every time users set a flag in the angular.json. Angular inlining helps the Google Fonts to convert in a way that inlines the index HTML.  The inline fonts get downloaded in the Angular CLI during compile time that are being used and linked in the application. The features of Angular 11 take advantage of the default optimization for the build to run on the CI whenever the internet is available.
+
+Component Test Harnesses
+The Component Test Harnesses gives a powerful and clear API surface that assists with testing the Angular Material components. It gives an approach to developers to communicate with Angular Material parts by utilizing the upheld API while testing. This feature was first introduced in Angular 9.  The difference between Angular 9 and Angular 11 with the Component Test Harnesses is that Angular 11 comes with a parallel function, performance improvements, and new APIs. The manual change detection function, helps the developers to disable the automatic change detection in unit tests as well as access the finer-grained control of change detection.
+
+Updated Language Service Preview
+  The Angular Language Service in Angular 11 provides helpful tools for developing productivity and fun within the Angular environment. The current type of language administration relies upon View Engine that gives all the more impressive and precise experience for developers.  Angular 11 changes the standard for the language administration to accurately infer generic types in templates just like how the TypeScript compiler does. This feature being still in development gives a new more powerful and accurate Ivy-based language service.
+
+Faster Builds
+The faster development and build cycle in Angular 11 has brought updates into some key areas, which are, Ngcc - the Angular compiler and TypeScript v4.0. Angular 11 introduces the  ngcc update process in a 4x faster process so that users will have to spend relatively less time waiting for the builds and rebuilds to complete. While profiling the Angular compiler, the Angular contributor Joost makes the Typescript compiler faster for improving the Ngcc preparing the Angular environment for Typescript 4.1, which will get faster builds.
+
+Experimental Webpack 5 Support
+Angular 11 supports the use of webpack that incorporates countless documents into a single bundle. Webpack 5 is the latest version that was delivered several months back. It actually needs an ideal opportunity to be steady. Right now, one can explore differences regarding module federation. This webpack v5, later on, will make the way for Faster builds and disk caching as well as Smaller bundles with cjs tree-shaking. 
+
+Moving to ESLint
+Angular 11 performance improvements support deprecation of the use of TSLint and Codelyzer which have been shipping a default implementation for linting in the previous versions.  It is one of the most important changes in Angular version 11.  Angular developers seem to deprecate the use of the TSLint and instead recommend migration to ESLint. The Angular developers have ensured a smooth transition by collaborating to the supported linting stack.
+
+Router
+The major Angular 10 vs angular 11 difference revolves around the use of the router. In the earlier versions, while utilizing the RouteReuseStrategy #shouldReuseRoute strategy, there was a worry with respect to future and next courses being exchanged for child courses. This issue is fixed in Angular 11, with new parameter types that will allow a variable of type NavigationExtras to be passed in. However, they don't let the object literals to pass in as they specify known properties and types only that don't share properties for all intents and purposes with the ones in the Pick.  This issue can be fixed by the users who can specify properties from the NavigationExtras 
+
+Forms
+The amendments made in Angular 11 have improved the typing for validators and asyncValidators that were earlier not available. Type of AbstractFormControl.parent in Angular 11 incorporates null that is remembered for the sorts of .parent. Angular version 11 migration adds the non-null assertion operator wherever it's required.  The async validators in The FormControl, FormGroup and FormArray class that were initially defined at the initialization time are now emitted into the statusChanges observable. `,
+  },
+  Angular12: {
+    id: 'Angular12',
+    title: 'Angular 12',
+    preText: `
+    Angular templates in v12 can even bring the force of nullish coalescing with the new syntax structure which can be utilized by the developers to improve the complex conditionals. 
+    
+    For instance:{{age !== null && age !== undefined ? age : calculateAge() }} 
+    Becomes:
+    {{ age ?? calculateAge() }}
+    `,
+    imgUrl: '',
+    description: `
+    Angular version 12 released on 12th May, is the latest and the newest version of the Google-developed web framework as a stable one. Some of the major improvements of this version are improvement in styling, Typescript 4.2, webpack 5 support, etc. Let’s study the features in detail.
+
+    Ivy Everywhere
+    Amongst many deprecations in the Angular environment, the deprecation of the View Engine in Angular 12 is certainly the most important of all the deprecations. This deprecation will be eliminated in future significant releases as well. The Ivy everywhere refers to the methodology that works towards the objective of combining the Angular ecosystem on Ivy. The View Engines are being used by the developers, however, the developers are wanting to transition to Ivy as soon as possible. 
+    
+    Migrating from legacy i18n message IDs
+    Since Angular version 11, new tasks are normally intended to use the new message ids and they as of now have the tooling to move existing endeavors with existing interpretations. In the current version, there are diverse legacy message-id plans being used in the i18n system. These inheritance message-ids are fragile as issues can arise subject to whitespace and the getting sorted out organizations and ICU articulations. To handle this issue the community is moving away from them. The new standard message-id configuration is significantly more extreme and common. This arrangement will lessen the pointless interpretation invalidation and related retranslation cost in applications where interpretations don't facilitate due to whitespace changes for example. 
+    
+    Protractor: planning for future
+    The fate of the protractor is now with the Angular team and the community. They are currently now investigating the input shared in the RFC and figuring out the best future for Protractor. The group has decided to prohibit it in new tasks and, in light of everything, furnish alternatives with acclaimed outsider arrangements in the Angular CLI. The group is as of now working with Cypress, WebdriverIO, and TestCafe to help angularjs development company with getting elective arrangements. More information to come as this develops. 
+    
+    Improvements in styling
+    In Angular v12, Components will have support for inline Sass in the styles field of the @Component decorator. Angular CDK and Angular Material have received Sass’s new module system inside. If your application uses Angular CDK or Angular Material, it is important to change from node-sass to the sass npm package. The node-sass package is unmaintained and no longer stays mindful of new feature additions to the Sass language. 
+    
+    Deprecating support for IE11
+    The evergreen platform of Angular suggests that it keeps up with the propelling web ecosystem. Eliminating help for legacy browsers licenses them to focus on giving modern arrangements and better assistance to designers and customers. The team has additionally incorporated another deprecation warning message as another Angular 12 element — and eliminated support for IE11 in Angular v13. 
+    
+    Support from the Community
+    The angular community has stepped up to work diligently for improving the Angular experience. They are constantly endeavoring to improve the Angular learning experience for designers.  As a part of Angular 12 new highlights, they have carried out some huge upgrades to their documentation. They have additionally refreshed the angular.io contributor's guide that will help people wanting to improve the docs. 
+    
+    Typescript 4.2
+    The support of Typescript 4.2 is one of the major updates of Angular 12.2. It was released on the 23rd of February with some exciting features and breaking changes that have impacted the developers and Angular 12. Some of the features of Typescript 4.2 are changes in tuple types, abstract construct signatures, improvements for in operator, improved type alias, improvements to the compile process.
+    
+    Angular Universal
+    One of the significant upgrades of the Angular 12 feature is Inline basic CSS that is of course in the nguniversal/normal. The Angular universal now upholds intermediary arrangement in ssr-dev-worker developer. It has also updated schematics to utilize the default configuration. This rendition supports an SSR motor called Clover alongside another motor which appears to be encouraging. The new motor intends to improve on things to produce application shells without an additional form and eliminate the necessity for various forms for SSR/prerender. 
+    
+    Webpack 5.37 support
+    Angular 12 features the support for the production-ready experimental Webpack 5 that was first introduced in Angular 11. This is one of the major differences between Angular 11 vs Angular 12. Webpack is the fundamental piece of the Angular CLI puzzle, and it has a significant influence on bundle size, builds execution, etc. Webpack 5 is a critical conveyance which is as it ought to be. It joins different breaking changes and highlights. Webpack 5 aids in Improving the long-term caching, form execution, similarity with the Web stage, bundle size with better code generation. 
+    
+    Nullish Coalescing
+    This Feature of Angular 12 has helped developers to write cleaner code in TypeScript classes. Angular templates in v12 can even bring the force of nullish coalescing with the new syntax structure which can be utilized by the developers to improve the complex conditionals. 
+    
+    For instance:{{age !== null && age !== undefined ? age : calculateAge() }} 
+    Becomes:
+    {{ age ?? calculateAge() }}
+    New Dev Tools
+    Two or three days after the Angular 12 release date, the Angular team has detailed the accessibility of Angular Dev Tools for Google Chrome. The implanted profiler can see and record the change recognition events which can be checked regarding which detection cycle and parts took the most significant length of time. Prior the Angular community had semi-official Dev Tools which were not viable with Ivy. So this is a mutually beneficial solution for all. 
+    
+    ng API improvements
+    The ng troubleshooting API is one of the improved features of Angular 12. There are a couple of functionalities that have been executed specifically getDirectiveMetadata and esetProfiler to investigate APIs for primary review of utilizations. The getDirectiveMetadata can be used to recuperate information about parts and directives. The esetProfiler can be utilized to follow layout creation lengths, lifecycle hooks preparing, and format updates. The API also can give knowledge into the working of the applications at runtime.
+    `
+  },
+  Angular13: {
+    id: 'Angular13',
+    title: 'Angular 13',
+    preText: `
+
+  // Here’s an example of creating dynamic components using previous versions of Angular.
+
+  @Directive({ … })
+
+  @Directive({ … })
+  export class Test {
+    constructor(private viewContainerRef: ViewContainerRef,
+                private componentFactoryResolver: 
+                        ComponentFactoryResolver) {}
+    createMyComponent() {
+        const componentFactory = this.componentFactoryResolver.
+                             resolveComponentFactory(MyComponent);
+    
+        this.viewContainerRef.createComponent(componentFactory);
+    }
+  }
+
+  // Due to the improved ViewContainerRef.createComponent API, it is now possible to create dynamic components with less boilerplate code. 
+
+  @Directive({ … })
+  export class Test {
+      constructor(private viewContainerRef: ViewContainerRef) {}
+      createMyComponent() {
+          this.viewContainerRef.createComponent(MyComponent);
+      }
+  }
+    `,
+    imgUrl: '',
+    description: `
+
+1. Typescript Update
+Previously 4.4.2 version of Typescript was supported, now Typescript 4.4 support has been added in Angular 13. Typescript 4.4.2 and older than that is no longer supported. This update can be seen in the package.json files.
+
+Control Flow Analysis, performance boost, new flags, and better IntelliSense are some of the key highlights Typescript 4.4 version.
+
+2. Removal of View Engine
+This is one of the most notable Angular 13 features leading to faster compilation and increased productivity in the framework. The view-engine angular 13 feature has been completely removed to reduce the complexity of the Angular 13 codebase.
+
+Angular 13 has completely shifted to Ivy which makes it easier for developers to improvise the dynamic components easily.
+
+To ensure that this transition goes well, the framework has converted all internal tools to Ivy beforehand.
+
+3. NodeJS Support
+Versions older than v12.20.0 are no longer supported by the Angular framework. Web developers might face certain issues while installing different packages if working with the older versions.
+
+16.14.2 is the current stable version of NodeJs. For ensuring seamless deployment of your project, it is recommended to install the latest versions of NodeJs.
+
+4. Angular CLI Improvements
+Angular CLI stands out to be one of the most crucial aspects of the overall angular architecture. By reducing complexities on a broad scale, Angular CLI helps standardize the process of handling the challenges of the present web development ecosystem.
+
+With the release of Angular 13, significant changes to the Angular CLI are introduced for performance improvement.
+
+Built-in support of persistent build cache
+Easy enabling and disabling options for the build cache by the angular.json file
+Up to 68% increase in speed of build-cache leading to faster deployment activities.
+These are the notable Angular CLI improvements that are introduced in the new Angular 13 features and updates.
+
+5. Validation Improvements
+They have now introduced the new type 'Form Control Status' in angular forms. The main aim of this is to have a better check on form controls.
+
+Form control status includes all possible values like ‘Valid’, ‘Invalid’, ‘Pending’, and ‘Disabled’.
+
+These are some of the changes observed regarding the Updating Validators:
+
+abstractControl.setValidators
+
+abstractControl.addValidators
+
+abstractControl.removeValidators
+
+abstractControl.hasValidtors
+
+It is now easier to enable and disable validations like min, max, email, etc.
+
+6. Removal of IE 11 Support
+This stands out to be one of the significant Angular 13 features. Angular 13 no longer supports IE11. CSS code paths, build passes, polyfills, special JS, and other parameters that were previously required for IE 11 have now been completely dropped off.
+
+As a result, Angular has grown faster, and it is now easier for Angular to use new browser features like CSS variables and web animations using native web APIs.
+
+Developers need to focus more on Web APIs, web notifications, WebRTC, WebGL, etc.,
+
+7. Changes in the Angular Package Format (APF)
+The Angular Package Format (APF) describes how Angular Framework packages and View Engine information should be formatted and assembled. Some substantial improvements are seen in the new edition of APF.
+
+Older output formats that include View Engine-specific Metadata have been dropped off.
+Standardization of modern JS formats such as ES2020.
+Libraries built with the latest version of the APF no longer require the use of ngcc.
+
+8. Framework Modifications and Dependency Updates
+RxJS 7.4 is now available as the version for apps created with ng-new. Existing apps using RxJS v6.x need to be manually updated it using the npm install rxjs@7.4
+
+9. Creating dynamic components
+One Ivy-enabled API update in Angular 13 is a more streamlined method for dynamically constructing a component. 
+ViewContainerRef.createComponent no longer requires an instantiated factory to construct a component (you no longer need to use ComponentFactoryResolver).
+
+`
+  },
+  Angular14: {
+    id: 'Angular14',
+    title: 'Angular 14',
+    preText: `
+    // Refer to the following code to create typed Angular forms.
+
+    export class SampleComponent {
+      var contactForm = new FormGroup({
+       name: new FormControl<string>('', { nonNullable: true }),
+       email: new FormControl<string>('', { nonNullable: true }),
+       contactNumber: new FormControl<number>(0, { nonNullable: false })
+      });
+    }
+
+    /* -------------------------------- */
+
+    // we can add the router title without any additional import on the page. Refer to the following code example.
+    
+    const routes: Routes = [{
+      path: 'home',
+      component: HomeComponent
+      title: 'Home page'  // <-- Page title
+    }, {
+      path: 'about',
+      component: AboutComponent,
+      title: 'About page'  // <-- Page title
+    }];
+
+    /* -------------------------------- */
+
+    // Now you can bind protected component members directly from the template. Refer to the following code example.
+
+    @Component({
+      selector: 'app-root',
+      template: '{{ title }}',  // Now compiles!
+    })
+    export class SampleComponent {
+      protected title: string = 'Angular 14';
+    }
+
+    /* -------------------------------- */
+
+    // This injector enables customization of dependency injection behavior within the specific template
+   
+    viewContainer.createEmbeddedView(templateRef, context, {
+      injector: injector,
+    })
+    `,
+    imgUrl: '',
+    description: `
+1. Angular gets simplified with Standalone Components
+This is one of the major advancements that can be seen with the release of Angular 14. With the addition of standalone components, the process of writing Angular Apps becomes much simpler and easier than before.
+
+Standalone components eliminate the need of using NgModules, and we can now get the developer preview of a new way of writing components, one without the NgModule i.e Standalone Components.
+
+For now, this feature is available in the developer preview, meaning that it might change later until it becomes fully stable. This change could majorly alter the process of writing Angular Apps in the future.
+
+2. Typed Forms
+When it comes to Angular, there are two distinctive approaches for handling the forms. They can be either created by the template-driven approach or by using the reactive approach.
+
+This newly introduced feature of Typed Forms is only applicable to reactive forms. The values inside form controls, groups, and arrays are type safe. It improves the overall “ type” safety of the applications developed using Angular.
+
+The updated schematics enable progressive migration to Typed forms, allowing you to gradually add typing to your existing forms.
+
+3. Streamlined Page Title accessibility
+While developing apps your page title distinctively represents the content of your page. In the previous release of Angular 13, the process of adding title was streamlined with the new Route.title property in the Angular Router.
+
+Now with Angular 14, there are no more additional imports required when adding a title to your page.
+
+4. New primitives in the Angular CDK
+The Component Dev Kit (CDK) from Angular provides a comprehensive set of tools for creating Angular components. The CDK Menu and Dialog have now been promoted to stable version in Angular 14!
+
+The addition of new CDK primitives in Angular 14 allows for the creation of more accessible custom components.
+
+Some additional Angular 14 features
+
+1. Angular DevTools is now available offline
+
+The Angular DevTools debugging extension can now be used in offline mode as well. Firefox users can find the extension under Mozilla's Add-ons for Firefox users.
+
+2. Angular CLI enhancements
+
+Angular 14 has got an amazing feature of autocomplete! Typos are bound to often while typing your code, resulting in command-line errors. To fix this, ng completion in version 14 now includes real-time type-ahead autocompletion!
+
+Detailed analytics information using the ng analytics and improved ways to control the cache information using the ng cache are some of the additional features.
+
+3. Optional injectors
+
+When building an embedded view using the Angular 14 version, you may now specify an optional injector through ViewContainerRef.createEmbeddedView and TemplateRef.createEmbeddedView.
+
+4. Built-in improvements
+
+Angular 14 adds support for TypeScript 4.7 and now targets ES2020 by default, allowing the CLI to deploy smaller code without downgrading.
+
+Another noteworthy Angular 14 feature is that you can now link to protected component members directly from your templates. This offers more control over the public API surface of the reusable components.
+
+5. Extended developer diagnostics
+
+This new Angular 14 feature provides an extendable framework that enables better insights into your templates and provides suggestions for possible improvements in them.
+
+How to upgrade
+
+To avail of the benefits of Angular 14 features, developers can run ng update in their projects.
+
+ng update @angular/cli @angular/core
+Or you can refer to update.angular.io for further guidance and instructions regarding the installation of Angular 14.
+
+To wrap up,
+
+These were the noteworthy changes in the latest version of Angular 14.
+
+The Angular developer community strives to make sure that web developers get better versions of the framework allowing them to stay updated with the rest of the online ecosystem and users' needs.
+
+Now, that you’re aware of the key features and upgrades, it’s time to shift to Angular 14!
+    `
+  },
+  Angular15: {
+    id: 'Angular15',
+    title: 'Angular 15',
+    preText: '',
+    imgUrl: '',
+    description: `
+1. MDC-Based Components
+Angular 15 has refactored many components to follow Material Design Components for Web (MDC). These MDC-based components help to improve accessibility. Since they are now a part of the Material Design spec, developers can adapt faster to a future version.
+
+2. Standalone components
+The module is baggage that many Angular programmers didn’t want in code. However, till Angular 14, there was no other way around the module.
+
+That’s where standalone components play a crucial role. Angular made the Ng modules optional, so programmers can now build standalone components without constantly relying on or updating Ng modules.
+
+Another good thing about it is that components are stable and self-contained and manage their dependencies independently. Developers can also package, reuse, and lazy load them. This feature simplifies Angular development to a new level, as developers don’t have to understand multiple concepts before making components.
+
+3. Stack Traces for Better Debugging
+This is good news for all Angular developers, as finally, Google heard the developer’s request. The community was confused over the error message. And since debugging is a huge part of development, this area needs improvement.
+
+Fortunately, Angular 15 has resolved this issue by improving stack traces and making them more meaningful. As a result, developers will get simplified error messaging with stack traces that can be linked only to the code frame that they altered.
+
+4. Esbuild Support to Enable Quick Build
+The web pack might be a popular module bundle tool. However, it was previously too complex and slow to configure, which pulled away many developers from experimenting. Fortunately, this bundler tool is much faster, with support for file replacement, SVG template, SaaS, and Ng build watch support.
+
+5. Directive Composition API to elevate code usability
+Angular directives provide a way to encapsulate reusable behavior. In simple terms, developers can use it for repetitive behaviors and to apply attributes, CSS classes, and event listeners to any elements. The new directive composition API in Angular 15 takes this to the next level by helping you apply directives to the component’s host element within the component Typescript class.
+
+6. Router Standalone API
+Minko Gechev updated about the new standalone router API in recent tweets. According to them, this standalone API will use routers without the Ng module.
+
+The Angular router is an essential part of the Angular ecosystem. With it, developers can build single-page applications with multiple views and add navigation. The best part about this feature is the reduced app size. As his tweet mentioned, it can shave over 11% of the app size.
+
+7. NGOptimized Image Directive for Better Image Loading
+Angular 15 also improved the NgOptimisedImage directive, which was released in the previous version. The main aim here is to help images load efficiently. This directive automatically loads a correctly sized image whenever the user makes a request, thus reducing the downtime time of the image.
+
+This way, developers don't have to input image dimensions manually, as it automatically fills the image of the parent container. This is especially helpful when the dimensions are unknown.
+
+8. Less Boilerplate Code for Easy Testing
+As per their recent tweet, the Angular 15 version reduces the boilerplate needed to test anything, depending on Router. They also added tests that helped trigger navigation during testing. As a result, Angular 15 increases test coverage and reduces risks of uncaught errors in case the Router code is changed.
+    `
   },
 };
 export const EMPLOYEE_DATA = {

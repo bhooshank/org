@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'org-feature',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './feature.component.html',
   styleUrl: './feature.component.scss'
 })
