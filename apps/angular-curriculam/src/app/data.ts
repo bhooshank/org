@@ -244,7 +244,7 @@ One of the major changes introduced to Angular 6 is internationalization (i18n) 
 Bazel Compiler
 Bazel optimizes your Angular compilation, it only rebuilds what is necessary to build as it does not make any sense to rebuild the entire application for every little change with this so we can archive fast and incremental builds.
 
-ng-add
+
 ng add 
 helps you install and download new packages in your angular apps.
 ng-update
@@ -263,7 +263,6 @@ Updates on NgModelChange
 Add type and hooks to directive def
 Enable size tracking of a minimal CLI render3 application
 Add canonical view query
-<ng-template> now becomes <template>
 Long-term support(LTE) added to Angular from v4
 `,
   },
