@@ -3,9 +3,13 @@
     {{feature?.title}}
 </h2>
 </div>
+
 <div class="col py-2">
-    <img class="w-100" [src]="feature?.imgUrl" alt="image not available">
+    <pre class="description">{{feature?.description}}</pre>
 </div>
 <div class="col py-2">
-    <p>{{feature?.description}}</p>
+    <!-- <img class="w-100" [src]="feature?.imgUrl" alt="image not available"> -->
+    <pre class="preText" [innerText]="feature?.preText">
+
+    </pre>
 </div>

@@ -11,6 +11,7 @@ export class FeatureComponent {
   @Input() feature :{
     title:string,
     imgUrl:string,
+    preText?:string,
     description:string
   } | undefined
 

@@ -1,25 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
+import { ColDef, ColGroupDef } from 'ag-grid-community';
+import { Observable } from 'rxjs';
+import { DataAPIService } from '../data-api.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'org-grid-comp',
   standalone: true,
-  imports: [CommonModule, AgGridAngular],
+  imports: [CommonModule, AgGridAngular,HttpClientModule],
   templateUrl: './grid-comp.component.html',
   styleUrl: './grid-comp.component.scss',
 })
-export class GridCompComponent {
+export class GridCompComponent implements OnInit{
+  employees$:Observable<any> | undefined;
+  defaultColDef:ColDef[]  =[{
+    resizable:true
+  }]
   columnDefs: ColDef[] = [
-    { headerName: 'Make', field: 'make', sortable: true,editable:true,singleClickEdit:true },
-    { headerName: 'Model', field: 'model', sortable: true },
-    { headerName: 'Price', field: 'price', sortable: true },
+    { headerName: 'id', field: 'id' },
+    { headerName: 'name', field: 'employee_name'  },
+    { headerName: 'salary', field: 'employee_salary'},
+    { headerName: 'age', field: 'employee_age', rowGroup:true},
+
   ];
 
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxster', price: 72000 },
-  ];
+  constructor(private data:DataAPIService){
+    
+  }
+ 
+  ngOnInit(): void {
+      this.employees$ = this.data.getEmployeesAllData();
+  }
 }
