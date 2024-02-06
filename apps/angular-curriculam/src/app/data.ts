@@ -381,7 +381,7 @@ The ViewChild and ContentChild decorators now must have a new option called stat
     },...
   })
   ...
-  
+
   @Directive({
     host: {
       style: "color:black",
@@ -532,47 +532,44 @@ The amendments made in Angular 11 have improved the typing for validators and as
     `,
     imgUrl: '',
     description: `
-    Angular version 12 released on 12th May, is the latest and the newest version of the Google-developed web framework as a stable one. Some of the major improvements of this version are improvement in styling, Typescript 4.2, webpack 5 support, etc. Let’s study the features in detail.
+Angular version 12 released on 12th May, is the latest and the newest version of the Google-developed web framework as a stable one. Some of the major improvements of this version are improvement in styling, Typescript 4.2, webpack 5 support, etc. Let’s study the features in detail.
 
-    Ivy Everywhere
-    Amongst many deprecations in the Angular environment, the deprecation of the View Engine in Angular 12 is certainly the most important of all the deprecations. This deprecation will be eliminated in future significant releases as well. The Ivy everywhere refers to the methodology that works towards the objective of combining the Angular ecosystem on Ivy. The View Engines are being used by the developers, however, the developers are wanting to transition to Ivy as soon as possible. 
-    
-    Migrating from legacy i18n message IDs
-    Since Angular version 11, new tasks are normally intended to use the new message ids and they as of now have the tooling to move existing endeavors with existing interpretations. In the current version, there are diverse legacy message-id plans being used in the i18n system. These inheritance message-ids are fragile as issues can arise subject to whitespace and the getting sorted out organizations and ICU articulations. To handle this issue the community is moving away from them. The new standard message-id configuration is significantly more extreme and common. This arrangement will lessen the pointless interpretation invalidation and related retranslation cost in applications where interpretations don't facilitate due to whitespace changes for example. 
-    
-    Protractor: planning for future
-    The fate of the protractor is now with the Angular team and the community. They are currently now investigating the input shared in the RFC and figuring out the best future for Protractor. The group has decided to prohibit it in new tasks and, in light of everything, furnish alternatives with acclaimed outsider arrangements in the Angular CLI. The group is as of now working with Cypress, WebdriverIO, and TestCafe to help angularjs development company with getting elective arrangements. More information to come as this develops. 
-    
-    Improvements in styling
-    In Angular v12, Components will have support for inline Sass in the styles field of the @Component decorator. Angular CDK and Angular Material have received Sass’s new module system inside. If your application uses Angular CDK or Angular Material, it is important to change from node-sass to the sass npm package. The node-sass package is unmaintained and no longer stays mindful of new feature additions to the Sass language. 
-    
-    Deprecating support for IE11
-    The evergreen platform of Angular suggests that it keeps up with the propelling web ecosystem. Eliminating help for legacy browsers licenses them to focus on giving modern arrangements and better assistance to designers and customers. The team has additionally incorporated another deprecation warning message as another Angular 12 element — and eliminated support for IE11 in Angular v13. 
-    
-    Support from the Community
-    The angular community has stepped up to work diligently for improving the Angular experience. They are constantly endeavoring to improve the Angular learning experience for designers.  As a part of Angular 12 new highlights, they have carried out some huge upgrades to their documentation. They have additionally refreshed the angular.io contributor's guide that will help people wanting to improve the docs. 
-    
-    Typescript 4.2
-    The support of Typescript 4.2 is one of the major updates of Angular 12.2. It was released on the 23rd of February with some exciting features and breaking changes that have impacted the developers and Angular 12. Some of the features of Typescript 4.2 are changes in tuple types, abstract construct signatures, improvements for in operator, improved type alias, improvements to the compile process.
-    
-    Angular Universal
-    One of the significant upgrades of the Angular 12 feature is Inline basic CSS that is of course in the nguniversal/normal. The Angular universal now upholds intermediary arrangement in ssr-dev-worker developer. It has also updated schematics to utilize the default configuration. This rendition supports an SSR motor called Clover alongside another motor which appears to be encouraging. The new motor intends to improve on things to produce application shells without an additional form and eliminate the necessity for various forms for SSR/prerender. 
-    
-    Webpack 5.37 support
-    Angular 12 features the support for the production-ready experimental Webpack 5 that was first introduced in Angular 11. This is one of the major differences between Angular 11 vs Angular 12. Webpack is the fundamental piece of the Angular CLI puzzle, and it has a significant influence on bundle size, builds execution, etc. Webpack 5 is a critical conveyance which is as it ought to be. It joins different breaking changes and highlights. Webpack 5 aids in Improving the long-term caching, form execution, similarity with the Web stage, bundle size with better code generation. 
-    
-    Nullish Coalescing
-    This Feature of Angular 12 has helped developers to write cleaner code in TypeScript classes. Angular templates in v12 can even bring the force of nullish coalescing with the new syntax structure which can be utilized by the developers to improve the complex conditionals. 
-    
-    For instance:{{age !== null && age !== undefined ? age : calculateAge() }} 
-    Becomes:
-    {{ age ?? calculateAge() }}
-    New Dev Tools
-    Two or three days after the Angular 12 release date, the Angular team has detailed the accessibility of Angular Dev Tools for Google Chrome. The implanted profiler can see and record the change recognition events which can be checked regarding which detection cycle and parts took the most significant length of time. Prior the Angular community had semi-official Dev Tools which were not viable with Ivy. So this is a mutually beneficial solution for all. 
-    
-    ng API improvements
-    The ng troubleshooting API is one of the improved features of Angular 12. There are a couple of functionalities that have been executed specifically getDirectiveMetadata and esetProfiler to investigate APIs for primary review of utilizations. The getDirectiveMetadata can be used to recuperate information about parts and directives. The esetProfiler can be utilized to follow layout creation lengths, lifecycle hooks preparing, and format updates. The API also can give knowledge into the working of the applications at runtime.
-    `
+Ivy Everywhere
+Amongst many deprecations in the Angular environment, the deprecation of the View Engine in Angular 12 is certainly the most important of all the deprecations. This deprecation will be eliminated in future significant releases as well. The Ivy everywhere refers to the methodology that works towards the objective of combining the Angular ecosystem on Ivy. The View Engines are being used by the developers, however, the developers are wanting to transition to Ivy as soon as possible. 
+
+Migrating from legacy i18n message IDs
+Since Angular version 11, new tasks are normally intended to use the new message ids and they as of now have the tooling to move existing endeavors with existing interpretations. In the current version, there are diverse legacy message-id plans being used in the i18n system. These inheritance message-ids are fragile as issues can arise subject to whitespace and the getting sorted out organizations and ICU articulations. To handle this issue the community is moving away from them. The new standard message-id configuration is significantly more extreme and common. This arrangement will lessen the pointless interpretation invalidation and related retranslation cost in applications where interpretations don't facilitate due to whitespace changes for example. 
+
+Protractor: planning for future
+The fate of the protractor is now with the Angular team and the community. They are currently now investigating the input shared in the RFC and figuring out the best future for Protractor. The group has decided to prohibit it in new tasks and, in light of everything, furnish alternatives with acclaimed outsider arrangements in the Angular CLI. The group is as of now working with Cypress, WebdriverIO, and TestCafe to help angularjs development company with getting elective arrangements. More information to come as this develops. 
+
+Improvements in styling
+In Angular v12, Components will have support for inline Sass in the styles field of the @Component decorator. Angular CDK and Angular Material have received Sass’s new module system inside. If your application uses Angular CDK or Angular Material, it is important to change from node-sass to the sass npm package. The node-sass package is unmaintained and no longer stays mindful of new feature additions to the Sass language. 
+
+Deprecating support for IE11
+The evergreen platform of Angular suggests that it keeps up with the propelling web ecosystem. Eliminating help for legacy browsers licenses them to focus on giving modern arrangements and better assistance to designers and customers. The team has additionally incorporated another deprecation warning message as another Angular 12 element — and eliminated support for IE11 in Angular v13. 
+
+Support from the Community
+The angular community has stepped up to work diligently for improving the Angular experience. They are constantly endeavoring to improve the Angular learning experience for designers.  As a part of Angular 12 new highlights, they have carried out some huge upgrades to their documentation. They have additionally refreshed the angular.io contributor's guide that will help people wanting to improve the docs. 
+
+Typescript 4.2
+The support of Typescript 4.2 is one of the major updates of Angular 12.2. It was released on the 23rd of February with some exciting features and breaking changes that have impacted the developers and Angular 12. Some of the features of Typescript 4.2 are changes in tuple types, abstract construct signatures, improvements for in operator, improved type alias, improvements to the compile process.
+
+Angular Universal
+One of the significant upgrades of the Angular 12 feature is Inline basic CSS that is of course in the nguniversal/normal. The Angular universal now upholds intermediary arrangement in ssr-dev-worker developer. It has also updated schematics to utilize the default configuration. This rendition supports an SSR motor called Clover alongside another motor which appears to be encouraging. The new motor intends to improve on things to produce application shells without an additional form and eliminate the necessity for various forms for SSR/prerender. 
+
+Webpack 5.37 support
+Angular 12 features the support for the production-ready experimental Webpack 5 that was first introduced in Angular 11. This is one of the major differences between Angular 11 vs Angular 12. Webpack is the fundamental piece of the Angular CLI puzzle, and it has a significant influence on bundle size, builds execution, etc. Webpack 5 is a critical conveyance which is as it ought to be. It joins different breaking changes and highlights. Webpack 5 aids in Improving the long-term caching, form execution, similarity with the Web stage, bundle size with better code generation. 
+
+Nullish Coalescing
+This Feature of Angular 12 has helped developers to write cleaner code in TypeScript classes. Angular templates in v12 can even bring the force of nullish coalescing with the new syntax structure which can be utilized by the developers to improve the complex conditionals. 
+
+New Dev Tools
+Two or three days after the Angular 12 release date, the Angular team has detailed the accessibility of Angular Dev Tools for Google Chrome. The implanted profiler can see and record the change recognition events which can be checked regarding which detection cycle and parts took the most significant length of time. Prior the Angular community had semi-official Dev Tools which were not viable with Ivy. So this is a mutually beneficial solution for all. 
+
+ng API improvements
+The ng troubleshooting API is one of the improved features of Angular 12. There are a couple of functionalities that have been executed specifically getDirectiveMetadata and esetProfiler to investigate APIs for primary review of utilizations. The getDirectiveMetadata can be used to recuperate information about parts and directives. The esetProfiler can be utilized to follow layout creation lengths, lifecycle hooks preparing, and format updates. The API also can give knowledge into the working of the applications at runtime.
+`
   },
   Angular13: {
     id: 'Angular13',
