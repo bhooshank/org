@@ -632,10 +632,50 @@ Tree Shaking
 Tree shaking is a build optimization step which tries to ensure any unused code does not get used in our final bundle which helps you to make your app smaller. It uses new injectable services where we can register a provider directly inside the @Injectable() decorator, using the new providedIn attribute.
 
 <pre class="code-disp">
-// MyService.ts
+// app/message/services/message-service.ts
 
 @Injectable({ providedIn: 'root'})
-export class MyService{}
+export class MessageService{
+  message = 'Hello world!'
+}
+
+// app.component.ts
+
+  import { Component,OnInit } from '@angular/core';
+  import { MessageService } from 'app/message/services/message-service.ts';
+
+  @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    preserveWhitespaces:true
+  })
+  export class AppComponent implements OnInit{
+
+  constructor(private messageService:MessageService){
+  }
+
+  ngOnInit(){
+    console.log(messageService.message); // Hellow world!
+  }
+
+
+  // app/message/message.component.ts
+
+  import { Component,OnInit } from '@angular/core';
+  import { MessageService } from 'app/message/services/message-service.ts';
+  @Component({
+    selector: 'app-message',
+    templateUrl: './message.component.html',
+    styleUrl: './message.component.scss',
+  })
+  export class MessageComponent implements OnInit{
+  constructor(private messageService:MessageService){
+
+  }
+  ngOnInit(){
+    console.log(messageService.message); // Hellow world!
+  }
 
 </pre>
 
