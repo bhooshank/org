@@ -5,11 +5,12 @@
 </div>
 
 <div class="col py-2">
-    <pre class="description">{{feature?.description}}</pre>
+    <pre class="description" [innerHtml]="feature?.description | safehtml"></pre>
 </div>
-<div class="col py-2" *ngIf="feature?.preText">
-    <!-- <img class="w-100" [src]="feature?.imgUrl" alt="image not available"> -->
-    <pre class="preText" [innerText]="feature?.preText">
+<!-- <div class="col py-2" *ngIf="feature?.preText">
+    <pre class="preText" >
+<code [innerText]="feature?.preText">
 
+</code>
     </pre>
-</div>
+</div> -->

@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { SafehtmlPipe } from '../../safehtml.pipe';
 
 @Component({
   selector: 'org-feature',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SafehtmlPipe],
   templateUrl: './feature.component.html',
-  styleUrl: './feature.component.scss'
+  styleUrl: './feature.component.scss',
+  encapsulation:ViewEncapsulation.None
 })
 export class FeatureComponent {
   @Input() feature :{

@@ -66,6 +66,16 @@ export const DROPDOWN_ITEMS: MenuDropdownItem[] = [
     id: 'Angular15',
     linkName: 'Angular 15',
   },
+  {
+    link: '/version',
+    id: 'Angular16',
+    linkName: 'Angular 16',
+  },
+  {
+    link: '/version',
+    id: 'Angular17',
+    linkName: 'Angular 17',
+  },
 ];
 
 export const FEATURES_DATA = {
@@ -75,8 +85,252 @@ export const FEATURES_DATA = {
     imgUrl: '',
     preText: '',
     description: `
+<span>
+
 Angular 2 is written in typescript compared to its predecessor Angular Js which is Js framework and Angular follows the component based architecture 
-       
+
+Components in and Controllers out: Earlier version of Angular i.e. Angular or Angular 1.x worked in project using Controllers now in Angular 2 its work around changed to Components. In real sense, Controllers still exist as one part of what we are calling a Component. The Component is composed and has a View and a Controller. The View is what we have HTML template while Controller in actual the JavaScript behaviour. There is no need of separate API registration for the controller or other of the non-standard APIs like Angular 1.x, in Angular 2.0 we just need to create a simple class with some of the annotations. Using this approach in Angular 2 it helps to build the project applications into many different modules. And with that it becomes easy in maintaining the project over a period of time. Other components of Angular 2 are as below: -
+
+<pre class="code-disp">
+import { Component } from '@angular/core';
+
+@Component ({
+   selector: 'my-app',
+   template: ' &ltdiv&gt
+      &lth1&gt{{appTitle}}&lt/h1&gt
+      &ltdiv&gtTo Tutorials Point&lt/div&gt
+   &lt/div&gt ',
+})
+
+export class AppComponent {
+   appTitle: string = 'Welcome';
+}
+
+</pre>
+
+Modules
+
+Modules – It breaks project into logical pieces of code called Module and each of them helps to perform as a single task. Module is made up of the following parts: -
+Bootstrap array − It tells Angular 2 which components need to be loaded so that its functionality can be accessed in the application. Once we load the component in the bootstrap array, we need to declare them so that they can be used across other components in the Angular 2 or Angular 4 project application.
+Export array – It is used to export components, directives and pipes so that it can then be used in other modules.
+Import array − It is used to import the functionality from other Angular modules.
+
+<pre class="code-disp">
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+</pre>
+
+Templates
+Templates – Using this we can define the views of an Angular 2 or Angular 4 application. There are two ways to define Templates in Angular 2. One is inline template as shown below
+<pre class="code-disp">
+
+template: '
+   &ltdiv&gt
+      &lth1&gt{{AppTitle}}&lt/h1&gt 
+      &ltdiv&gtLearn Angular 2 Template&lt/div&gt 
+   &lt/div&gt 
+'
+</pre>
+
+and other way is by using the templateURL 
+
+templateURL:
+
+<pre class="code-disp">
+// app-greet.component.html 
+
+<xmp>
+<div>
+    <app-greet></app-greet>
+</div>
+</xmp>
+
+// app-greet.component.css
+div {
+  width:100 %;
+  height: 500px;
+}
+
+// app-greet.component.ts 
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-greet',
+  templateUrl: './app-greet.component.html',
+  styleUrls: ['./app-greet.component.css']
+})
+export class GreetComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+</pre>
+
+Directive - A directive is typically a custom HTML which is used that only intends to extend the strength of HTML. Angular 2 has the following named directive which gets called as part of the "BrowserModule" module. There are three types of directives: -
+
+Component Directive - Can Create a complete custom component which is composed of a View and a Controller it enables to use it as a custom HTML element. While we have router which can map routes to the Components.
+Decorator Directive - It nicely does the decoration of an existing HTML element with additive behavior. The best example we have is "ng-show".
+Template Directive - Helps to Transforms HTML into a reusable template. Then the author of directive can handle it to when and how the template gets initialized and inserted into the DOM. Examples for it is to include "ng-if" and "ng-repeat".
+*ngIf :- The ngif basically is used to add elements to the HTML code if it evaluates to true, else it will not add the elements to the HTML code.
+<pre class="code-disp">
+// app.component.ts
+
+import { Component } from '@angular/core';  
+
+@Component ({
+   selector: 'my-app',
+   templateUrl: 'app/app.component.html'
+})
+export class AppComponent {
+   appTitle: string = 'Welcome';
+   appStatus: boolean = true;
+}
+
+//app.component.html
+<xmp>
+<div *ngIf = 'appStatus'>{{appTitle}} Tutorialspoint </div> 
+</xmp>
+</pre>
+
+*ngFor :- The ngFor is used to elements based on the condition of the For loop.
+<pre class="code-disp">
+// app.component.ts
+
+import { Component } from '@angular/core';
+ 
+@Component ({
+   selector: 'my-app',
+   templateUrl: 'app/app.component.html'
+})
+
+export class AppComponent {
+   appTitle: string = 'Welcome';
+   appList: any[] = [ {
+      "ID": "1",
+      "Name" : "One"
+   },
+
+   {
+      "ID": "2",
+      "Name" : "Two"
+   } ];
+}
+
+// app.component.html
+
+<xmp>
+<div *ngFor = 'let lst of appList'> 
+   <ul> 
+      <li>{{lst.ID}}</li> 
+      <li>{{lst.Name}}</li> 
+   </ul> 
+</div> 
+</xmp>
+</pre>
+Metadata - It is data of data which can be used to add additional data to Angular 2 or Angular 4 class. Metadata helps us in decorating class so that it gets configured to achieve the expected behavior of the class. Following are the different parts for Metadata.
+Annotations - These are decorators which works at the class level.
+Parameters - These are set by the decorators in order it get worked at constructor level.
+
+
+
+2) TypeScript writes JavaScript - As we know Angular 2 works behind with JavaScript. So now how to learn Angular 2 when you do not know write in JavaScript. Here TypeScript plays a vital role where you write simple program and backend it automatically gets converted to JavaScript i.e. (.ts) file is converted to (.js). TypeScript is a superset of JavaScript and is developed by Microsoft.
+
+3) Services - They are sets of code which can be shared by different Components of an Angular 2 application. So if we have data component which gets data from a database this can be shared as service so that it could be consumed when required by others.
+
+<pre class="code-disp">
+//myservice.ts
+
+import { Injectable } from '@angular/core';  
+  
+@Injectable()  
+export class MyService {  
+    GetText() {  
+        return "Text From Service";  
+    }  
+}  
+</pre>
+
+<pre class="code-disp">
+// app.component.ts
+
+import { Component } from '@angular/core';  
+import { MyService } from './app.service';  
+  
+@Component({  
+  selector: 'test-app',  
+  templateUrl: './app/example.html',  
+   providers: [MyService]  
+})  
+export class AppComponent {   
+    name = "Jignesh";  
+    messageText = '';    
+    constructor(private _myService: MyService) {  
+  
+    }  
+    onClickMe() {    
+        this.messageText = this._myService.GetText();    
+    }  
+} 
+</pre>
+
+<pre class="code-disp">
+// example.html
+<xmp>
+<div>  
+    <h4>Event Binding</h4>  
+    <br/>   
+    <button (click)="onClickMe()">Click me!</button>    
+    <br/><br/>    
+    <span> {{messageText}} </span>  
+</div>
+</xmp>
+</pre>
+
+<pre class="code-disp">
+// app.module.ts
+
+import { NgModule }      from '@angular/core';  
+import { BrowserModule } from '@angular/platform-browser';  
+import { FormsModule } from '@angular/forms';  
+import { MyService } from './app.service';  
+  
+  
+import { AppComponent }  from './app.component';  
+  
+@NgModule({  
+  imports:      [ BrowserModule, FormsModule],  
+  declarations: [ AppComponent],      
+  bootstrap:    [ AppComponent ],  
+  providers: [MyService]  
+})  
+export class AppModule {   
+}
+</pre>
+Other important features of Angular 2 are it has new improved better event-handling capabilities, powerful templates and full-fledged support for mobile devices.
+
+
+
 Javascript VS TypeScript in Angular 2
 
 Directives Support
@@ -90,6 +344,8 @@ Support for a component-based architecture
 Cross-platform Support
 
 Improved routing
+
+</span>
       `,
   },
   Angular4: {
@@ -137,8 +393,9 @@ Improved routing
     content here... // #content  block will be displayed
     `,
     description: `
+<span>
 where is Angular 3? since Angular is developed in MonoRepo the Angular team skipped the Angular 3 version since there was active and huge development on angular router section.
-Angular routing was misaligned with angular core versioning number and team decided to synchronize versioning of all the dependency^s to avoid confusion for angular community. 
+Angular routing was misaligned with angular core versioning number and team decided to synchronize versioning of all the dependency's to avoid confusion for angular community. 
 in Angular 4 TypeScript 2.2 was used which improves type checking and security, strictNullChecks,
 introduced NgIf with else, template depricated and now we can use ng-template
 
@@ -148,9 +405,101 @@ They've pulled animations from the Angular core and set them in the separate pac
 NgIf with Else:
 Now we can use else statement with ngIf along with an improvement on *ng-If and *ng-For and both can be achieved in Angular 4 and Angular 5.
 
+using else :
+
+<pre class="code-disp">
+// app.component.html
+<xmp>
+<div *ngIf="isValid;else other_content">  
+
+    content here ...
+
+</div>
+
+<ng-template #other_content>other content here...</ng-template>
+</xmp>
+
+// app.component.ts
+
+  import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+  })
+  export class AppComponent {
+    isValid = false
+  }
+</pre>
+
+Output: isValid // false
+other content here... // #other_content block will be displayed
+
+
+you can also use then else :
+
+
+<pre class="code-disp">
+// app.component.html
+<xmp>
+<div *ngIf="isValid; then content
+      else other_content">   here is ignored 
+</div>
+
+<ng-template #content>content here...</ng-template>
+
+<ng-template #other_content>other content here...</ng-template>
+</xmp>
+
+// app.component.ts
+
+  import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+  })
+  export class AppComponent {
+    isValid = true
+  }
+</pre>
+
+Output: isValid // true
+content here... // #content  block will be displayed
+
+
+or then alone :
+
+<pre class="code-disp">
+// app.component.html
+  <xmp>
+  <div *ngIf="isValid;then content"></div>
+
+  <ng-template #content>content here...</ng-template>
+  </xmp>
+    
+// app.component.ts
+
+  import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+  })
+  export class AppComponent {
+    isValid = true
+  }
+</pre>
+
+Output: isValid // true
+content here... // #content  block will be displayed
+
+
 Template:
-The template is now ng-template tag instead of as <template> caused conflicts with other usages of the <template> tag It still works, 
-therefore the Angular team changed it to use <ng-template> for Angular purposes
+The template is now ng-template tag instead of as &lt;template&gt; caused conflicts with other usages of the &lt;template&gt; tag It still works, therefore the Angular team changed it to use &lt;ng-template&gt; for Angular purposes
 
 TypeScript 2.1 and 2.2 Compatibility:
 The group has upgraded Angular to TypeScript version 2.2. 
@@ -158,7 +507,7 @@ This will enhance the security of Angular applications and rate of ngc and you'l
 
 StrictNullChecks:
 Set skipLibCheck to true in your tsConfig file to enable strictNullChecks in an Angular
-
+</span>
       `,
   },
   Angular5: {
@@ -167,7 +516,7 @@ Set skipLibCheck to true in your tsConfig file to enable strictNullChecks in an 
     preText: `
     With the new Angular 5, one can now choose whether or not to restrict newlines,
     tabs, and white spaces coming from your components and your application.
-
+<code>
     @Component({ 
 
       templateUrl: 'demo.component.html', 
@@ -189,10 +538,11 @@ Set skipLibCheck to true in your tsConfig file to enable strictNullChecks in an 
 
       export class demoComponent {}
 
-
+</code>
     `,
     imgUrl: '',
     description: `
+<span>
 angular 5 in this version there was lots of efforts made to reduce the bundle size of the app after production build because of build optimizer,
 compiler improvements, angular httpClient bieng used in replacement of Http traditional module, TypeScript 2.5 support, preserve white spaces
        
@@ -216,6 +566,34 @@ In Angular 5 they have added support to AppShell. It uses the router to render y
 Preserve Whitespace
 With the new Angular 5, one can now choose whether or not to restrict newlines, tabs, and white spaces coming from your components and your application.
 
+<pre class="code-disp">
+
+// app.component.ts
+
+  import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    preserveWhitespaces:true
+  })
+  export class AppComponent {
+
+  }
+
+
+  /* If you want to restrict them throughout the application level then below
+  is the sample code in config.json file. */
+  
+  "angularCompilerOptions": { 
+  
+    "preserveWhitespaces": false 
+  
+  }
+
+</pre>
+</span>
 `,
   },
   Angular6: {
@@ -224,6 +602,7 @@ With the new Angular 5, one can now choose whether or not to restrict newlines, 
     preText: '',
     imgUrl: '',
     description: `
+<span>
 This release is focused less on the underlying framework, and more on tool-chain and on making it easier to move quickly with angular in the future, Dependency on RxJS 6,Synchronizes major version number of the Angular framework, Angular CLI, Angular Material  CDK all are now version 6.0.0
 
 Angular 6 features
@@ -252,6 +631,14 @@ ng update is used to update and upgrade your packages it will help you to upgrad
 Tree Shaking
 Tree shaking is a build optimization step which tries to ensure any unused code does not get used in our final bundle which helps you to make your app smaller. It uses new injectable services where we can register a provider directly inside the @Injectable() decorator, using the new providedIn attribute.
 
+<pre class="code-disp">
+// MyService.ts
+
+@Injectable({ providedIn: 'root'})
+export class MyService{}
+
+</pre>
+
 Some Major updates in Angular 6
 Typescript 2.7.x supports
 Improved decorator error messages
@@ -263,7 +650,7 @@ Add type and hooks to directive def
 Enable size tracking of a minimal CLI render3 application
 Add canonical view query
 Long-term support(LTE) added to Angular from v4
-`,
+</span>`,
   },
   Angular7: {
     id: 'Angular7',
@@ -293,6 +680,7 @@ allowing the MyLegacyComponent to be used in the Angular application.
     `,
     imgUrl: '',
     description: `
+<span>
 Google has released Angular version 7 in Oct 2018 with a lot of optimum features and significant changes like Angular Material, CLI prompts, Scrolling, Drag, and Virtual and Drop & Component Dev Kit (CDK)
 
 CLI prompts
@@ -321,6 +709,7 @@ Added a new ability to recover from malformed URLs
 Downloadable console for starting and running Angular projects on your local machine
 compiler-cli: update tsickle to 0.29.x
 Export defaultKeyValueDiffers to private API 
+</span>
     `,
   },
   Angular8: {
@@ -329,6 +718,7 @@ Export defaultKeyValueDiffers to private API
     preText: '',
     imgUrl: '',
     description: `
+  
 Angular 8 has introduced with a bunch of workflow and performance improvements and a lot has changed in the framework under the hood in terms of tooling. Comparing Angular 6 vs Angular 7 vs Angular 8 Finally, Angular 8 released with ivy rendering which Angular team was along with updated angular core framework, Angular Material, and the Command Line Interface or CLI.
 
 Ivy Engine
@@ -564,6 +954,15 @@ Angular 12 features the support for the production-ready experimental Webpack 5 
 Nullish Coalescing
 This Feature of Angular 12 has helped developers to write cleaner code in TypeScript classes. Angular templates in v12 can even bring the force of nullish coalescing with the new syntax structure which can be utilized by the developers to improve the complex conditionals. 
 
+<pre class="code-disp">
+
+/* Angular templates in v12 can even bring the force of nullish coalescing with the new syntax structure
+ which can be utilized by the developers to improve the complex conditionals. */
+    
+For instance:{{age !== null && age !== undefined ? age : calculateAge() }} 
+Becomes:
+{{ age ?? calculateAge() }}
+</pre>
 New Dev Tools
 Two or three days after the Angular 12 release date, the Angular team has detailed the accessibility of Angular Dev Tools for Google Chrome. The implanted profiler can see and record the change recognition events which can be checked regarding which detection cycle and parts took the most significant length of time. Prior the Angular community had semi-official Dev Tools which were not viable with Ivy. So this is a mutually beneficial solution for all. 
 
@@ -578,7 +977,6 @@ The ng troubleshooting API is one of the improved features of Angular 12. There 
 
   // Here’s an example of creating dynamic components using previous versions of Angular.
 
-  @Directive({ … })
 
   @Directive({ … })
   export class Test {
@@ -671,6 +1069,34 @@ RxJS 7.4 is now available as the version for apps created with ng-new. Existing 
 One Ivy-enabled API update in Angular 13 is a more streamlined method for dynamically constructing a component. 
 ViewContainerRef.createComponent no longer requires an instantiated factory to construct a component (you no longer need to use ComponentFactoryResolver).
 
+<pre class="code-disp">
+
+// Here’s an example of creating dynamic components using previous versions of Angular.
+
+
+@Directive({ … })
+export class Test {
+  constructor(private viewContainerRef: ViewContainerRef,
+              private componentFactoryResolver: 
+                      ComponentFactoryResolver) {}
+  createMyComponent() {
+      const componentFactory = this.componentFactoryResolver.
+                           resolveComponentFactory(MyComponent);
+  
+      this.viewContainerRef.createComponent(componentFactory);
+  }
+}
+
+// Due to the improved ViewContainerRef.createComponent API, it is now possible to create dynamic components with less boilerplate code. 
+
+@Directive({ … })
+export class Test {
+    constructor(private viewContainerRef: ViewContainerRef) {}
+    createMyComponent() {
+        this.viewContainerRef.createComponent(MyComponent);
+    }
+}
+</pre>
 `
   },
   Angular14: {
@@ -736,11 +1162,32 @@ When it comes to Angular, there are two distinctive approaches for handling the 
 This newly introduced feature of Typed Forms is only applicable to reactive forms. The values inside form controls, groups, and arrays are type safe. It improves the overall “ type” safety of the applications developed using Angular.
 
 The updated schematics enable progressive migration to Typed forms, allowing you to gradually add typing to your existing forms.
+<pre class="code-disp">
+// Refer to the following code to create typed Angular forms.
 
+export class SampleComponent {
+  var contactForm = new FormGroup({
+   name: new FormControl<string>('', { nonNullable: true }),
+   email: new FormControl<string>('', { nonNullable: true }),
+   contactNumber: new FormControl<number>(0, { nonNullable: false })
+  });
+}
+</pre>
 3. Streamlined Page Title accessibility
 While developing apps your page title distinctively represents the content of your page. In the previous release of Angular 13, the process of adding title was streamlined with the new Route.title property in the Angular Router.
 
 Now with Angular 14, there are no more additional imports required when adding a title to your page.
+<pre class="code-disp">
+const routes: Routes = [{
+  path: 'home',
+  component: HomeComponent
+  title: 'Home page'  // <-- Page title
+}, {
+  path: 'about',
+  component: AboutComponent,
+  title: 'About page'  // <-- Page title
+}];
+</pre>
 
 4. New primitives in the Angular CDK
 The Component Dev Kit (CDK) from Angular provides a comprehensive set of tools for creating Angular components. The CDK Menu and Dialog have now been promoted to stable version in Angular 14!
@@ -763,11 +1210,32 @@ Detailed analytics information using the ng analytics and improved ways to contr
 
 When building an embedded view using the Angular 14 version, you may now specify an optional injector through ViewContainerRef.createEmbeddedView and TemplateRef.createEmbeddedView.
 
+<pre class="code-disp">
+// This injector enables customization of dependency injection behavior within the specific template
+   
+viewContainer.createEmbeddedView(templateRef, context, {
+  injector: injector,
+})
+</pre>
 4. Built-in improvements
 
 Angular 14 adds support for TypeScript 4.7 and now targets ES2020 by default, allowing the CLI to deploy smaller code without downgrading.
 
 Another noteworthy Angular 14 feature is that you can now link to protected component members directly from your templates. This offers more control over the public API surface of the reusable components.
+
+<pre class="code-disp">
+
+// Now you can bind protected component members directly from the template. Refer to the following code example.
+
+@Component({
+  selector: 'app-root',
+  template: '{{ title }}',  // Now compiles!
+})
+export class SampleComponent {
+  protected title: string = 'Angular 14';
+}
+
+</pre>
 
 5. Extended developer diagnostics
 
@@ -830,6 +1298,518 @@ This way, developers don't have to input image dimensions manually, as it automa
 As per their recent tweet, the Angular 15 version reduces the boilerplate needed to test anything, depending on Router. They also added tests that helped trigger navigation during testing. As a result, Angular 15 increases test coverage and reduces risks of uncaught errors in case the Router code is changed.
     `
   },
+  Angular16: {
+    id: 'Angular16',
+    title: 'Angular 16',
+    preText: '',
+    imgUrl: '',
+    description: `<span>
+1. Angular Signals
+Angular Signals is the main feature developers have been waiting for since the Angular 16 roadmap was released. Although Solid.js inspired this concept, it is a whole new concept for Angular. It allows you to define reactive values and express dependencies between them. In other words, you can efficiently use Angular signals to manage state changes within Angular applications.
+
+A signal can be recognized as a regular variable that users can synchronously access. But it comes with some additional features like notifying others (component templates, other signals, functions, etc.) of its value changes and creating a derived state in a declarative way.
+
+The following example shows how to use Angular signals.
+<pre class="code-disp">
+
+import { Component, computed, effect, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { bootstrapApplication } from '@angular/platform-browser';
+
+@Component({
+  selector: 'my-app',
+  standalone: true,
+  imports: [CommonModule],
+  template: '
+   <xmp> <h1>Calculate Area</h1>
+    <p>Answer : {{ area() }}</p>
+    <button (click)="calculateArea(10,10)">Click</button> </xmp>
+  ',
+})
+
+export class App {
+    height = signal(5);
+    width = signal(5);
+    area = computed(() => this.height() * this.width());
+    constructor() {
+      effect(() => console.log('Value changed:', this.area()));
+    }
+    calculateArea(height: number, width: number) {
+      this.height.set(height);
+      this.width.set(width);
+    }
+}
+
+</pre>
+In this example, I have created a computed value area and two signals named height and width. When the values of the signals are changed by invoking the calculateArea() function, the computed value will be updated and displayed in the template. Here is a working Stackblitz example for you to try it.
+
+Although this looks fantastic, Angular has not abandoned zone.js and RxJS. Signals are an optional feature, and Angular will still work without them. Angular will gradually improve Signals in upcoming versions to make it a complete package.
+
+
+2. Server-Side Rendering
+The lack of server-side rendering (SSR) support was one of the most significant drawbacks of Angular compared to React. Angular 16 has resolved this issue with some significant improvements for server-side rendering.
+
+Before, Angular used destructive hydration for SSR. In destructive hydration, the server first renders and loads the application to the browser. Then, when the client app gets downloaded and bootstrapped, it destroys the already rendered DOM and re-renders the client app from scratch. This approach caused significant UX issues, like screen flickering, and negatively impacted some Core Web Vitals such as LCP or CLS.anug.
+
+Angular 16 introduces a new approach called non-destructive hydration to prevent these drawbacks. The DOM is not destroyed when the client app is downloaded and bootstrapped. It uses the same DOM while enriching it with client-side features like event listeners.
+
+Non-destructive hydration is still at the developer preview stage. But you can enable it by adding provideClientHydration() as a provider when bootstrapping the application.
+<pre class="code-disp">
+
+import {
+ bootstrapApplication,
+ provideClientHydration,
+} from '@angular/platform-browser';
+
+...
+
+bootstrapApplication(RootCmp, {
+ providers: [provideClientHydration()]
+});
+</pre>
+According to the official Angular release note, this is just the beginning. They plan to explore partial hydration as the next step and work on several developer requests. You can find more about the Angular SSR development plan here.
+
+3. Experimental Jest Support
+Jest is one of the most-used testing frameworks among JavaScript developers. Angular has listened to developer requests and has introduced experimental Jest support with Angular 16.
+
+All you have to do is install Jest using npm and update the angular.json file.
+<pre class="code-disp">
+
+// Install jest
+npm install jest --save-dev
+
+// angular.json
+{
+  "projects": {
+    "my-app": {
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:jest",
+          "options": {
+            "tsConfig": "tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+   }
+}
+</pre>
+They plan to move all the existing Karma projects to Web Test Runner in future updates.
+
+4. esbuild-Based Build System
+Angular 16 introduces an esbuild-based build system for the development server (ng serve). Vite powers this new development server and uses esbuild to build artifacts.
+
+This is still at the developer preview stage, but you can enable it by updating the angular.json file with the following.
+<pre class="code-disp">
+
+"architect": {
+  "build": { 
+    "builder": "@angular-devkit/build-angular:browser-esbuild",
+...
+</pre>
+5. Required Inputs
+In Angular 16, you can now define input values as required. You can either use the @Input decorator or the @Component decorator inputs array to define one.
+<pre class="code-disp">
+
+export class App {
+  @Input({ required: true }) name: string = '';
+}
+
+// or
+@Component({
+  ...
+  inputs: [
+    {name: 'name', required: true}
+  ]
+})
+</pre>
+6. Router Inputs
+Angular 16 allows you to bind route parameters into component inputs, removing the need to inject ActivatedRoute into the components. To enable this feature, you must import RouterModule and enable the bindToComponentInputs property in the app.module.ts file.
+<pre class="code-disp">
+
+@NgModule({
+ imports: [
+   ...
+   RouterModule.forRoot([], {
+     bindToComponentInputs: true 
+   })
+   ...
+ ],
+ ...
+})
+export class AppModule {}
+The following example shows how we can bind query params to component inputs.
+
+// Route
+const routes: Routes = [
+ {
+   path: "articles",
+   component: ArticleComponent,
+ },
+];
+
+// Component
+@Component({})
+export class ArticleComponent implements OnInit {
+  
+  @Input() articleId?: string; 
+  
+  ngOnInit() {
+  
+  }
+}
+Now, when you navigate to the articles route, you can pass query params using the name of the component input.
+In this case, an example URL will look like the following.
+
+http://localhost:4200/articles?articleId=001
+If the input name is too long, you can rename the query parameter.
+
+http://localhost:4200/articles?id=001
+
+@Input('id') articleId?: string;
+
+You can also use this approach to bind path parameters and route data.
+</pre>
+
+7. Standalone Project Support
+Angular 14 started supporting standalone components, which are independent of modules. Angular 16 takes this to the next level by supporting standalone project creation.
+
+Angular 16 has a flag to create a standalone project through the Angular CLI. You have to execute ng new command with the –standalone flag. Then, it will generate a project without NgModules.
+<pre class="code-disp">
+  ng new --standalone
+</pre>
+</span>
+    
+    `
+  },
+  Angular17: {
+    id: 'Angular17',
+    title: 'Angular 17',
+    preText: '',
+    imgUrl: '',
+    description: `
+<span>
+
+Major changes in Angular 17
+
+Boosting performance: Speed up builds with up to 87% faster hybrid rendering and up to 67% improvement in client side rendering.
+
+A sleek makeover, showcasing features in its fresh new look with all new interactive learning journey designed to make mastering Angular
+
+Revamped hybrid rendering experience with @angular/ssr package
+
+New lifecycle hooks: afterRender and afterNextRender
+
+New application builder: Vite and esbuild the default for new projects
+
+Dependency injection debugging capabilities in Angular DevTools
+
+All the ng generate commands will now scaffold standalone components, directives, and pipes
+
+Experimental view transitions support to enable transitions when changing DOM
+
+Style and styleUrls as strings
+
+Future-looking documentation
+Angular has a brand-new documentation at angular.dev, coinciding with its updated brand. The revamped site boasts a user-friendly structure, many improvements to guides, and enriched content. Notably, it introduces an interactive learning journey, made possible by WebContainers. This feature empowers users to explore and learn Angular and the Angular CLI at their own pace, all within the convenience of a modern web browser. It's a simpler and more accessible way to master Angular's intricacies.
+
+Built-in control flow
+Angular has introduced a new block template syntax, offering this one of the powerful features through straightforward, declarative APIs. Behind the scenes, the Angular compiler transforms this control flow syntax into efficient JavaScript instructions capable of handling control flow, lazy loading, and more. With several challenges encountered by developers using ngIf, ngSwitch, and *ngFor, the angular team has responded with a new, built-in control flow tailored to simplify angular development.
+
+Let's dive into the key features that make this a significant advancement:
+
+Ergonomic Syntax: More intuitive and developer-friendly syntax, closely aligned with JavaScript, reducing the need for frequent documentation lookups.
+
+Better Type Checking: Improved type checking for more reliable and error-resistant code.
+
+Build-time Concept: It minimises runtime footprint, potentially reducing bundle size and aligning with Core Web Vital metrics.
+
+Automatic Integration: Seamless integration into your angular templates without additional imports, streamlining your development workflow.
+
+Significant Performance Improvements: Significant improvements to the performance ensuring faster runtime and enhanced user experiences.
+
+Conditional Statements
+Let's dive deeper into the functionality of *ngIf, specifically examining how conditional rendering is done with the new built-in control flow introduced in Angular 17.
+
+<pre class="code-disp">
+<xmp>
+<div *ngIf="paymentSuccessful; else errorMessage">
+  Payment successful! Thank you for your purchase.
+</div>
+
+<ng-template #errorMessage>
+  Oops! Payment failed. Please try again.
+</ng-template>
+</xmp>
+</pre>
+
+With the built-in @if statement, the code looks like:
+
+<pre class="code-disp">
+
+@if (paymentSuccessful) {
+  Payment successful! Thank you for your purchase.
+} @else {
+  Oops! Payment failed. Please try again.
+}
+</pre>
+
+The ability to directly provide content for @else is a significant simplification compared to the legacy *ngIf alternative. The current control flow also makes it trivial to incorporate @else if, a functionality that was historically impossible.
+
+Looking at the *ngSwitch code below will provide a clear understanding.
+
+<pre class="code-disp">
+<xmp>
+<div [ngSwitch]="paymentStatus">
+  <successful-payment *ngSwitchCase="'success'"></successful-payment>
+  <pending-payment *ngSwitchCase="'pending'"></pending-payment>
+  <failed-payment *ngSwitchCase="'failed'"></failed-payment>
+  <default-payment-status *ngSwitchDefault></default-payment-status>
+</div>
+</xmp>
+</pre>
+
+With the built-in @switch statement, the code looks like:
+
+<pre class="code-disp">
+@switch (paymentStatus) {
+  @case ('success') { <successful-payment/> }
+  @case ('pending') { <pending-payment/> }
+  @case ('failed') { <failed-payment/> }
+  @default { <default-payment-status/> }
+}
+</pre>
+
+The built-in control flow in Angular 17 facilitates notably improved type-narrowing within the individual branches of @switch, which is not achievable with the traditional *ngSwitch.
+
+Built-in for loops
+The built-in for loop designed specifically for payments. This feature not only enriches the developer experience but also propels Angular's rendering speed to new heights!
+
+The new way of writing for loops looks like this:
+
+<pre class="code-disp">
+@for (transaction of payments; track transaction.id) {
+  {{ transaction.amount }}
+} @empty {
+  No payment transactions found
+}
+</pre>
+
+Angular app often face speed issues because *ngFor lacks a trackBy function. In the new syntax with @for, usage of track is mandatory for quick performance. It's simpler to use as it's just an expression, not a method in your component. @for also has a handy shortcut for empty collections using @empty. Behind the scenes, @for uses a better algorithm, making it up to 90% faster than *ngFor according to community benchmarks!
+
+Deferrable views
+Angular 17 introduced a powerful mechanism utilising the new block syntax, allowing developers to significantly boost the speed of their apps. Deferrable views elevate performance and developer experience by enabling straightforward and powerful deferred loading with unparalleled ease.
+
+Let's say you're developing an e-commerce platform, and you wish to implement deferred loading for the product reviews section. In the current approach, using ViewContainerRef it is complex to manage cleanups, to handle loading errors, to present skeleton loader, and more. Addressing these various situations often leads to the creation of intricate code, posing challenges in testing and debugging.
+
+The code for implementing deferrable views in the new way appears as simple as the following:
+
+<pre class="code-disp">
+@defer (on viewport) {
+  &ltreview-list /&gt
+} @placeholder {
+  &lt!-- A placeholder content to show until the reviews load --&gt
+  &ltimg src="placeholder-image.png" /&gt
+}
+</pre>
+
+The use of @placeholder in the code above is, of course, optional, for the sake of customisation. In the provided example, Angular first showcases the content within the placeholder block. As soon as it enters the viewport, Angular triggers the loading of the <review-list/> component. Once the loading is finished, Angular removes the placeholder and displays the fully rendered component on the web page.
+
+This all happens during compile-time in Angular. The angular framework takes care of the complexity by identifying components, directives, and pipes within a @defer block. It then dynamically generates imports and manages the entire loading and state-switching process effortlessly, making deferred loading a breeze for developers.
+
+There are more blocks for loading and error states, streamlining the management of various scenarios and Angular handles a lot of complexity behind the scenes, making the process seamless for you.
+
+<pre class="code-disp">
+@defer (on viewport) {
+  &ltreview-list/&gt
+} @loading {
+  Loading…
+} @error {
+  Loading failed :(
+} @placeholder {
+  &ltimg src="placeholder.png"&gt
+}
+</pre>
+
+Deferrable views come with additional triggers for versatile lazy loading:
+
+on idle: Load the block lazily when the browser is not engaged in heavy tasks.
+
+on immediate: Initiate automatic deferred loading without blocking the browser.
+
+on timer(<time>): Delay loading with a specified timer.
+
+on viewport and on viewport(<ref>): In addition to triggering when in the viewport, you can specify a reference for an anchor element. Angular will lazily load and render the component when the anchor element becomes visible.
+
+on interaction and on interaction(<ref>): Initiate deferred loading when the user interacts with a specific element.
+
+on hover and on hover(<ref>): Trigger deferred loading when the user hovers over an element.
+
+when <expr>: Define your own condition through a boolean expression.
+
+Deferrable views also provide the ability to prefetch the dependencies ahead of rendering them. Adding prefetching is as simple as adding a prefetch statement to the defer block and supports all the same triggers.
+
+<pre class="code-disp">
+@defer (on viewport; prefetch on idle) {
+  &ltreview-list /&gt
+}
+</pre>
+
+In case of server side rendering, placeholder for the deferred views are rendered at the server side and the view is lazy loaded as client side rendering once the the angular framework loads the application and hydrates it to fully rendered html.
+
+TypeScript 5.2 Support
+Angular 17 requires at least TypeScript 5.2. You cannot use earlier versions of TypeScript with Angular 17. Angular is committed to keeping pace with TypeScript releases, ensuring access to the latest language features. While Angular 17 supports TypeScript 5.2, hence it's generally recommended to use the latest stable TypeScript version for optimal compatibility and features.
+
+There are several upgrade benefits of TypeScript to version 5.2:
+
+TypeScript 5.2 offers up to 33% faster type checking for recursive types, potentially speeding up your development workflow for your web application
+
+You can leverage new control flow declarations for cleaner code and ergonomic error handling with try...catch expressions in JSX
+
+Automatic missing-comma insertions
+
+Readonly arrays
+
+The satisfies operator for type guards
+
+Experimental await expressions in enum members
+
+Revamped hybrid rendering experience
+Angular 17 introduced an improved rendering experience, bridging server-side rendering (SSR) and static-site generation (SSG or pre-rendering) for developers. When creating a new Angular project with ng new, developers will now encounter a convenient prompt to enable SSR and SSG seamlessly. This change has been a long-anticipated improvement, and it's introduced now that we're confident in the SSR developer experience of Angular.
+
+As an alternative, developers can enable SSR in new Angular 17 projects using the command:
+<pre class="code-disp">
+
+ng new my-app --ssr
+</pre>
+
+Hydration and Server Side Rendering
+Hydration was introduced as developer preview in the previous versions as a new feature. Over the past six months, developers like you have embraced hydration in thousands of applications. Angular, marking a significant milestone announced the official exit of hydration from the developer preview phase. It's automatically enabled by default in all new apps using server-side rendering!
+
+New @angular/ssr package
+The Angular Universal repository has now been moved to the Angular CLI repository, emphasising the increased integration of server-side rendering into our broader tooling offerings. As of today, if you wish to add hybrid rendering support to your existing application, you can achieve this by running:
+
+ng add @angular/ssr
+Running this command will generate the server entry point, incorporate server-side rendering (SSR) and static-site generation (SSG) build capabilities, and enable hydration by default. Notably, @angular/ssr now offers the same functionality as @nguniversal/express-engine, which is presently in maintenance mode. If you're currently using express-engine, Angular CLI will seamlessly update your code to use @angular/ssr.
+
+New Lifecycle Hooks
+To boost the performance of Angular's SSR and SSG, there is need to move away from DOM emulation and direct DOM manipulations in the long run. Recognising the importance of element interactions throughout most applications' lifecycle, such as initialising third-party libraries or measuring element size, a set of new lifecycle hooks has been introduced:
+
+afterRender — register a callback to be invoked each time the application finishes rendering
+
+afterNextRender — register a callback to be invoked the next time the application finishes rendering
+
+These hooks are triggered by the browser. It securely incorporates custom DOM logic directly into the angular components. This ensures a controlled environment for your specific DOM manipulations. Consider this example: If you want to instantiate a charting library, leverage the afterNextRender hook:
+
+<pre class="code-disp">
+@Component({
+  selector: 'my-chart-cmp',
+  template: '&ltdiv #chart&gt{{ ... }}&lt/div&gt',
+})
+export class MyChartCmp {
+  @ViewChild('chart') chartRef: ElementRef;
+  chart: MyChart | null;
+
+  constructor() {
+    afterNextRender(() => {
+      this.chart = new MyChart(this.chartRef.nativeElement);
+    }, { phase: AfterRenderPhase.Write });
+  }
+}
+
+</pre>
+
+Each hook, including afterNextRender, supports a phase value (e.g., read, write), which Angular utilises to schedule callbacks, minimising layout thrash and enhancing performance.
+
+
+In version 16, a developer preview of the ESBuild and Vite-powered build experience was introduced. Many developers dived into experimentation, and some enterprise partners reported impressive results, with up to a 67% improvement in build times for their apps! Today, it's exciting to announce that the new application builder has officially graduated from developer preview and is now the default for all new applications!
+
+Additionally, the build pipeline for rendering has been fine-tuned. With SSR & SSG, you can now experience the speed boost in ng build as well as edit-refresh loop for ng serve.
+
+Dependency injection debugging in DevTools
+Last year, the Angular offered a sneak peek into the debugging features of Angular DevTools. Recently, they introduced new capabilities to:
+
+See what components depend on
+
+Understand the tree of injectors and how dependencies are resolved
+
+Explore providers declared within injectors
+
+Find more information on angular dev tools.
+
+Standalone APIs from the start
+Standalone components are a new feature that simplifies component architecture and offers potential performance benefits. Now, the ng generate command will create standalone new component, directive, and pipe.
+
+The following command is a schematic that assists you in migrating your entire application to use standalone components.
+
+ng generate @angular/core:standalone
+Experimental view transitions support
+Angular's experimental View Transitions API enables smooth DOM transitions. The router now directly supports this via the withViewTransitions feature. Configure it during bootstrap for seamless animated route transitions, leveraging the browser's capabilities. The withViewTransitions function provides optional configurations for added control, like skipping animations or customising animations with class adjustments on the document.
+
+<pre class="code-disp">
+bootstrapApplication(App, {
+  providers: [
+    provideRouter(routes, withViewTransitions()),
+  ]
+});
+</pre>
+
+Defer loading of the animations module
+By using this feature, bundle can be compressed by size 60KBs (16KBs gzipped). Thanks to the community contribution from Matthieu Riegler. We can now lazily load the animation module using the following code:
+
+<pre class="code-disp">
+
+import { provideAnimationsAsync } from '@angular/platform-browser/animations-async';
+
+bootstrapApplication(RootCmp, {
+  providers: [provideAnimationsAsync()]
+});
+
+</pre>
+
+Input value transforms
+Generally, when working with components that receive boolean inputs, a common challenge arises when passing values using a certain syntax. Take, for instance, the ToggleComponent with the following definition:
+
+<pre class="code-disp">
+
+@Component({
+  selector: 'app-toggle',
+  template: '...',
+})
+export class ToggleComponent {
+  @Input() isEnabled: boolean = false;
+}
+
+</pre>
+
+If you attempt to use it as <app-toggle isEnabled />, you might encounter an error stating "string is not assignable to boolean." To overcome this, you can utilise input value transforms by configuring the input decorator:
+
+<pre class="code-disp">
+
+@Component({
+  selector: 'app-toggle',
+  template: '...',
+})
+export class ToggleComponent {
+  @Input({ transform: booleanAttribute }) isEnabled: boolean = false;
+}
+</pre>
+
+Here, booleanAttribute is a function imported from the @angular/core library. It's designed to transform string-based input values into boolean values before they're passed to component properties in your angular application.
+
+Style and styleUrls as strings
+Angular components offer the flexibility of supporting multiple stylesheets per component. Yet, in most cases, when styling components, a common approach is to create an array with a single element that points to inline styles or references an external stylesheet. In Angular 17, you can switch between using styles, styleUrls, and styleUrl based on whether you prefer defining inline styles, specifying an array of stylesheet URLs, or providing a single URL for the stylesheet, respectively.
+
+Next steps on testing
+The Angular team is currently exploring Jest to develop a solution that prioritises speed, flexibility, and user-friendliness. Simultaneously, there's experimentation with Web Test Runner, and there's an open pull request for the initial implementation. In the short term, the emphasis may shift towards Web Test Runner to assist projects eager to transition away from Karma.
+
+Training Angular developers
+The Angular team collaborated with SoloLearn, an interactive EdTech platform, to develop a new Angular training based on the recent Introduction to Angular course.
+
+
+</span>
+
+    `}
 };
 export const EMPLOYEE_DATA = {
   status: 'success',
