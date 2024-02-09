@@ -28,7 +28,7 @@ export class GridCompComponent implements OnInit {
     { headerName: 'id', field: 'id' },
     { headerName: 'name', field: 'employee_name' },
     { headerName: 'salary', field: 'employee_salary' },
-    { headerName: 'age', field: 'employee_age', rowGroup: true },
+    { headerName: 'age', field: 'employee_age', rowGroup:true },
   ];
 
   constructor(private data: DataAPIService, private store: Store<GridState>) {

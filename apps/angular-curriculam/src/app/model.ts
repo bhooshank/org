@@ -4,7 +4,7 @@ export interface MenuDropdownItem {
   linkName: string;
 }
 export interface Employee {
-  id: string;
+  id: number;
   employee_name: string;
   employee_salary: string;
   employee_age: string;

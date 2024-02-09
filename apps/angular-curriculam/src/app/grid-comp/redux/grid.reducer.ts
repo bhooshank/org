@@ -8,9 +8,11 @@ import {
 } from '@ngrx/store';
 import { getAll, getAllSuccess } from './grid.action';
 export const gridFeatureKey = 'grid';
-
+export function sortBySeqNo(e1: Employee, e2: Employee) {
+  return e1.id - e2.id;
+}
 export interface GridState extends EntityState<Employee> {}
-export const adapter: EntityAdapter<Employee> = createEntityAdapter<Employee>();
+export const adapter: EntityAdapter<Employee> = createEntityAdapter<Employee>({sortComparer:sortBySeqNo});
 
 export const initialGridState: GridState = adapter.getInitialState();
 const getGridState = createFeatureSelector<GridState>(gridFeatureKey);
