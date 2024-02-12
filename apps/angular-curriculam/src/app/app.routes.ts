@@ -23,6 +23,12 @@ export const appRoutes: Route[] = [
       import('./general-feature/general-feature.component').then(
         (m) => m.GeneralFeatureComponent
       ),
+  },  {
+    path: 'empDetails',
+    loadComponent: () =>
+      import('./employee-details/employee-details.component').then(
+        (m) => m.EmployeeDetailsComponent
+      ),
   },
   {
     path: 'version/:id',

@@ -1,1 +1,49 @@
 <p>employee-details works!</p>
+<div class="container">
+  <div class="row">
+    <form
+      [formGroup]="empForm"
+      [ngClass]="{ invalid: (empForm.invalid && empForm.touched) }"
+      ngSubmit="onSubmit()"
+    >
+      <div class="col-md-6 py-2 ">
+        <input
+          placeholder="first name"
+          type="text"
+          formControlName="firstName"
+        />
+        <input placeholder="emp Id" type="text" formControlName="empId" />
+        <input placeholder="email" type="text" formControlName="email" />
+      </div>
+      <div formArrayName="skills" class="col-md-6 py-2">
+        <div
+          class="row py-2  "
+          *ngFor="let control of skills.controls; let i = index"
+        >
+          <input
+            placeholder="skill"
+            class="col-4"
+            type="text"
+            [formControlName]="i"
+          />
+          <input
+            class="col-2 btn btn-light"
+            type="button"
+            id="remove"
+            [disabled]="(skills.controls.length == 1)"
+            value="X"
+            (click)="removeSkill(i)"
+          />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button class="btn btn-secondary" (click)="addSkills()">
+          Add skill
+        </button>
+      </div>
+      <div class="col-md-12 py-2">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

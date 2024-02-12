@@ -729,6 +729,29 @@ In Angular 7, the command-line interface (CLI) prompts have been updated to v7.0
 New ng-compiler
 Angular 7 added a new compiler called the Angular Compatibility Compiler (ngcc). Just like the name suggests, the angular compiler offers an 8-phase rotating ahead-of-time compilation(AOT) and most of the angular applications noticed a massive reduction (95-99%) in bundle sizes.
 
+<pre class="code-disp">
+// In your project's package.json file
+{
+  "dependencies": {
+    "my-legacy-library": "^1.0.0"
+  }
+}
+
+// In your Angular application
+import { MyLegacyComponent } from 'my-legacy-library';
+
+@Component({
+  selector: 'app-root',
+  template: 
+    '<xmp><my-legacy-component></my-legacy-component></xmp>'
+  
+})
+export class AppComponent { }
+
+In this example, the my-legacy-library is a library that has been published in the legacy format.
+When the Angular Ivy compiler encounters this import, it will automatically run ngcc on the library to compile it to the new format,
+allowing the MyLegacyComponent to be used in the Angular application.
+</pre>
 Angular Material CDK (Component Dev Kit)
 Virtual scrolling
 The scrolling package enables loads and unloads items from the DOM depending upon visible parts of lists, resulting into a much faster experience for users having huge scrollable lists.
@@ -769,7 +792,42 @@ Web workers are essential for improving the parallelizability and the speed of y
 
 Lazy Loading
 Lazy loading is based on the concepts of Angular Routing and Angular 8 added support for dynamic EcmaScript imports in router configuration as it helps bring down the size of large files by lazily loading the files that are required.
+<pre class="code-disp">
 
+// app.routes.ts
+import { Route } from '@angular/router';
+
+
+export const appRoutes: Route[] = [
+  { path: '', redirectTo: 'grid', pathMatch: 'full' },
+  {
+    path: 'general',
+    loadChildren:'./general-feature/general-feature.module'
+  }, 
+  {
+    path: '**',redirectTo:'general'
+  }, 
+];
+
+// app.routes.ts
+
+import { Route } from '@angular/router';
+
+export const appRoutes: Route[] = [
+  { path: '', redirectTo: 'grid', pathMatch: 'full' },
+  {
+    path: 'general',
+    loadChildren: () =>
+      import('./general-feature/general-feature.module').then(
+        (m) => m.GeneralFeatureModule
+      ),
+  }, 
+  {
+    path: '**',redirectTo:'general'
+  }, 
+];
+
+</pre>
 Angular Firebase
 Angular 8 officially added support for firebase and now deploying an Angular app to Firebase is very easy, and it doesn’t take too much time using Angular CLI, Service Worker.
 
